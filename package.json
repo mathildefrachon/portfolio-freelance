@@ -13,7 +13,9 @@
     "build": "npm run dist-clear && npm run build-parcel && npm run build-static-path",
     "build-server": "cd dist && live-server --no-browser",
     "dist-clear": "rm -r -f dist/*",
-    "build-static-path": "cp -a code/img dist/"
+    "build-static-path": "cp -a code/img dist/",
+    "==========": "=======================================",
+    "autoprefixer": "postcss -u autoprefixer -r code/css/main.css"
   },
   "author": "Mathilde Frachon",
   "license": "ISC",
