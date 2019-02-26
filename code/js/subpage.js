@@ -59,27 +59,15 @@ function nextProject() {
       "&category=" +
       activeFilter;
     console.log(newUrl);
+    document.querySelector(".buttons--sub__next").setAttribute("href", newUrl);
   } else {
     let newUrl = "subpage.html?index=" + currentArray[nextIndex].wpid;
     document.querySelector(".buttons--sub__next").setAttribute("href", newUrl);
   }
-  // GIVES NEW URL AFTER A BIT
-  setTimeout(
-    function() {
-      document
-        .querySelector(".buttons--sub__next")
-        .setAttribute("href", newUrl);
-    },
-    500,
-    newUrl
-  );
 }
-
-let prevNewUrl = "";
 
 function previousProject() {
   console.log("previous");
-
   const thisIndex = currentArray.findIndex(pr => pr.wpid == index);
   let nextIndex = thisIndex - 1;
   console.log(nextIndex);
@@ -90,30 +78,22 @@ function previousProject() {
   // IF CAT THEN NEXT WITHIN CAT
   if (cat) {
     console.log("we have a category:" + cat);
-    prevNewUrl =
+    let newUrl =
       "subpage.html?index=" +
       currentArray[nextIndex].wpid +
       "&category=" +
       activeFilter;
-    console.log(prevNewUrl);
+    console.log(newUrl);
+    document
+      .querySelector(".buttons--sub__previous")
+      .setAttribute("href", newUrl);
   } else {
     prevNewUrl = "subpage.html?index=" + currentArray[nextIndex].wpid;
     console.log(prevNewUrl);
     document
-      .querySelector(".buttons--sub__next")
-      .setAttribute("href", prevNewUrl);
+      .querySelector(".buttons--sub__previous")
+      .setAttribute("href", newUrl);
   }
-  //closeInfos();
-  // GIVES NEW URL AFTER A BIT
-  setTimeout(
-    function() {
-      document
-        .querySelector(".buttons--sub__next")
-        .setAttribute("href", prevNewUrl);
-    },
-    500,
-    prevNewUrl
-  );
 }
 
 /* DISPLAY INFOS - OPEN CLOSE MENU INFOS */
