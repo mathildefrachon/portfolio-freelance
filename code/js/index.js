@@ -237,7 +237,7 @@ function displayProject(currentArray) {
     loader.classList.add("none");
     checkImgOrientation(downloadingImage, imgVert, imgWrap);
   };
-
+  console.log("go to infos");
   downloadingImage.src = myProject.image;
   // DISPLAY INFOS
   displayInfos(myProject);

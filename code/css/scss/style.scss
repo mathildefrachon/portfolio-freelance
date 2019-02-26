@@ -11,6 +11,9 @@ a {
 
 a {
   @include links($font-xs, white);
+  @include for-phone-only {
+    @include links($font-xxs, white);
+  }
 }
 
 h1 {
@@ -124,7 +127,10 @@ li {
 
 #logo-front {
   @include centered;
-  @include size(400px, 300px);
+  @include size(250px, auto);
+  @include for-tablet-landscape-up {
+    @include size(400px, 300px);
+  }
 }
 
 /* NAV BARS */

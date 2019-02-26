@@ -15,6 +15,7 @@ body {
 
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
+/* FONT SIZE FOR MOBILE */
 /* LINE HEIGHT */
 /* COLORS */
 /*darker*/
@@ -158,6 +159,7 @@ body {
 
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
+/* FONT SIZE FOR MOBILE */
 /* LINE HEIGHT */
 /* COLORS */
 /*darker*/
@@ -182,6 +184,7 @@ body {
 
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
+/* FONT SIZE FOR MOBILE */
 /* LINE HEIGHT */
 /* COLORS */
 /*darker*/
@@ -347,6 +350,7 @@ body {
 
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
+/* FONT SIZE FOR MOBILE */
 /* LINE HEIGHT */
 /* COLORS */
 /*darker*/
@@ -570,8 +574,12 @@ li {
   left: 0;
   right: 0;
   margin: auto;
-  width: 400px;
-  height: 300px; }
+  width: 250px;
+  height: auto; }
+  @media (min-width: 900px) {
+    #logo-front {
+      width: 400px;
+      height: 300px; } }
 
 /* NAV BARS */
 .c-menu {
