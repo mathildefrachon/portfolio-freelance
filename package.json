@@ -8,13 +8,11 @@
     "live-server": "live-server --open=code",
     "dev-sass": "node-sass code/css/scss/style.scss code/css/main.css --watch",
     "live-sass": "npm run dev-sass | npm run live-server",
-    "==========": "=======================================",
     "build-parcel": "parcel build code/index.html --public-url .",
     "build": "npm run dist-clear && npm run build-parcel && npm run build-static-path",
     "build-server": "cd dist && live-server --no-browser",
     "dist-clear": "rm -r -f dist/*",
     "build-static-path": "cp -a code/img dist/",
-    "==========": "=======================================",
     "autoprefixer": "postcss -u autoprefixer -r code/css/main.css"
   },
   "author": "Mathilde Frachon",
