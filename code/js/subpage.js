@@ -104,6 +104,7 @@ document
 document
   .querySelector(".buttons--cross__sub--infos")
   .addEventListener("click", closeInfos);
+
 const img_container = document.querySelector(".project--wrapper__sub");
 const infos_container = document.querySelector(".project--infos__sub");
 const infos = document.querySelector(".infos__sub");
