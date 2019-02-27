@@ -51,6 +51,7 @@ function init() {
   fetch(json_link)
     .then(e => e.json())
     .then(data => buildList(data));
+  console.log("init index");
 }
 
 // BUILD THE ARRAY OF PROJECTS
@@ -98,6 +99,7 @@ function displayArray(currentArray) {
     console.log("we are on gallery");
   } else {
     displayProject(currentArray);
+    console.log(urlIndex);
     console.log("we are on subpage");
   }
 }

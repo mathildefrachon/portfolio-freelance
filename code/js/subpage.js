@@ -68,6 +68,7 @@ function nextProject() {
 
 function previousProject() {
   console.log("previous");
+  closeInfos();
   const thisIndex = currentArray.findIndex(pr => pr.wpid == index);
   let nextIndex = thisIndex - 1;
   console.log(nextIndex);
@@ -88,8 +89,8 @@ function previousProject() {
       .querySelector(".buttons--sub__previous")
       .setAttribute("href", newUrl);
   } else {
-    prevNewUrl = "subpage.html?index=" + currentArray[nextIndex].wpid;
-    console.log(prevNewUrl);
+    let newUrl = "subpage.html?index=" + currentArray[nextIndex].wpid;
+    console.log(newUrl);
     document
       .querySelector(".buttons--sub__previous")
       .setAttribute("href", newUrl);
@@ -100,7 +101,7 @@ function previousProject() {
 
 document
   .querySelector(".buttons--sub__plus")
-  .addEventListener("click", displayInfos);
+  .addEventListener("click", openInfos);
 document
   .querySelector(".buttons--cross__sub--infos")
   .addEventListener("click", closeInfos);
@@ -110,7 +111,7 @@ const infos_container = document.querySelector(".project--infos__sub");
 const infos = document.querySelector(".infos__sub");
 console.log(infos_container);
 
-function displayInfos() {
+function openInfos() {
   console.log("plus infos");
 
   //for desktop
