@@ -38,6 +38,7 @@
     text-align: center;
   }
   @include for-phone-only {
+    text-align: center; // center img on mobile
     &__3 {
       height: 115vh;
       padding-top: 8vh; // just = menu height
@@ -61,7 +62,7 @@
     }
     ul,
     h3 {
-      padding: 3rem 0;
+      padding: 3rem;
     }
     &__5 {
       h3 {
@@ -127,7 +128,13 @@
     font-weight: 500;
   }
   &__5 {
-    width: 50%;
+    @include for-phone-only {
+      width: 50%;
+      margin: auto;
+    }
+    color: $dark-green;
+    font-family: Khand;
+    margin-top: 3rem;
   }
   &__wrapper {
     grid-column: 2/3;
@@ -151,7 +158,9 @@
     // FOR TABLET LANDSCAPE UP
     @include for-tablet-landscape-up {
       &__5 {
-        margin-bottom: 5rem;
+        margin-bottom: 1.5rem;
+        width: 100%;
+        text-align: start;
       }
     }
   }
@@ -180,6 +189,12 @@
     position: relative;
     .buttons {
       place-self: center;
+    }
+    @include for-tablet-landscape-up {
+      margin: 0;
+      .buttons {
+        justify-self: start;
+      }
     }
   }
 }
