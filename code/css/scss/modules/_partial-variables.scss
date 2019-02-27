@@ -1,39 +1,23 @@
-* {
-  font-family: Advent Pro, serif;
-  box-sizing: border-box;
-  margin: 0;
-}
-
-:root {
-  font-size: 62.5%;
-}
-
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 /* -------------GENERAL STYLE SHEET----------------- */
 
 /* FONT SIZE */
 
-$font-xl: 2.4rem;
+$font-xl: 2.5rem;
 $font-large: 2.1rem;
 $font-normal: 1.8rem;
 $font-small: 1.5rem;
 $font-xs: 1.2rem;
-$font-xxs: 9rem;
+$font-xxs: 0.9rem;
 
 /* FONT SIZE FOR MOBILE */
 
 /* LINE HEIGHT */
-$line-xl: 3.5rem;
-$line-large: 3rem;
+$line-xl: 2.7rem;
+$line-large: 2.5rem;
+$line-normal-me: 2.1rem;
 $line-normal: normal;
-$line-small: 2rem;
-$line-xs: 1rem;
+$line-small: 1.8rem;
+$line-xs: 1.5rem;
 
 ////////////////////////////////////
 
@@ -78,7 +62,6 @@ $transition-slow: all ease 2s;
 @mixin links($size, $color) {
   color: $color;
   font-size: $size;
-  @extend a;
 }
 
 @mixin text($size, $color) {

@@ -1,18 +1,4 @@
 /* ABOUT SCREEN */
-* {
-  font-family: Advent Pro, serif;
-  box-sizing: border-box;
-  margin: 0; }
-
-:root {
-  font-size: 62.5%; }
-
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0; }
-
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
 /* FONT SIZE FOR MOBILE */
@@ -24,84 +10,130 @@ body {
 /* ------------- MIXINS STYLE----------------- */
 /* -------------- MIXINS FUNCTIONS ------------------- */
 /* -------------- MIXINS RESPONSIVENESS ------------------- */
-/* CONTAINERS */
+/* ============= FOR PHONE GENERAL ================ */
 .not-phone {
   display: none; }
   @media (min-width: 900px) {
     .not-phone {
       display: block; } }
 
+@media (max-width: 599px) {
+  .about--img,
+  .about--text,
+  .about--icons__container {
+    margin: auto;
+    width: 70%;
+    margin-top: 1.5rem; }
+    .about--img__wrapper,
+    .about--text__wrapper,
+    .about--icons__container__wrapper {
+      width: 100%; } }
+
+/* ================= CONTAINERS ===================== */
 .about--wrapper {
+  width: 100%;
+  height: 100vh;
   position: relative;
-  padding: 15% 15%;
-  width: 100vw;
-  height: 100vh; }
+  padding-top: 15vh; }
+  .about--wrapper__1, .about--wrapper__2 {
+    padding-top: 25vh;
+    text-align: center; }
+  @media (max-width: 599px) {
+    .about--wrapper__3 {
+      height: 115vh;
+      padding-top: 8vh; } }
   @media (min-width: 900px) {
     .about--wrapper {
       display: grid;
       grid-template-columns: 45% 45%;
       grid-gap: 10%;
-      padding: 10% 20% 10% 20%; } }
-  .about--wrapper__1, .about--wrapper__2 {
-    grid-template-columns: 1fr;
-    text-align: center; }
-  .about--wrapper ul,
-  .about--wrapper h3 {
-    padding: 3rem 0; }
-  .about--wrapper p,
-  .about--wrapper h3 {
-    color: #0b443f; }
-    .about--wrapper p span,
-    .about--wrapper h3 span {
-      color: white;
-      font-family: Khand;
-      font-size: 1.8rem;
-      font-weight: 500; }
-      @media (max-width: 599px) {
-        .about--wrapper p span,
-        .about--wrapper h3 span {
-          font-size: 1.5rem; } }
-  .about--wrapper__5 h3 {
-    font-weight: 600; }
+      padding: 20vh 15vw 10vh 15vw; }
+      .about--wrapper__1 {
+        grid-gap: 3rem;
+        padding: 20vh 20vw 15vh 20vw;
+        grid-template-columns: 1fr; }
+      .about--wrapper__2 {
+        grid-gap: 3rem;
+        padding: 30vh 20vw 15vh 20vw;
+        grid-template-columns: 1fr; }
+      .about--wrapper ul,
+      .about--wrapper h3 {
+        padding: 3rem 0; }
+      .about--wrapper__5 h3 {
+        font-weight: 600; } }
+  .about--wrapper__not-desk {
+    display: none; }
+    @media (max-width: 599px) {
+      .about--wrapper__not-desk {
+        display: block; } }
 
+/* ================= IMAGES ===================== */
 .about--img {
   width: auto;
   height: auto;
+  outline: solid 2px white;
+  margin: auto;
   max-height: 500px;
-  max-width: 100%;
-  outline: solid 4px white;
-  align-self: center;
-  justify-self: end; }
+  max-width: 70%; }
   .about--img__1 {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto; }
-    @media (min-width: 900px) {
+    margin: auto;
+    outline: none; }
+  @media (min-width: 900px) {
+    .about--img {
+      max-height: 500px;
+      max-width: 100%;
+      align-self: center;
+      justify-self: end; }
       .about--img__1 {
-        place-self: center; } }
-  .about--img__5 {
-    max-width: 400px; }
+        max-width: 30%;
+        position: initial;
+        place-self: center; }
+      .about--img__5 {
+        max-width: 400px; } }
 
+/* ================= TEXT ===================== */
 .about--text {
-  margin-top: 10vh; }
+  color: #0b443f;
+  font-family: Khand; }
+  @media (min-width: 900px) {
+    .about--text {
+      display: inline; } }
+  .about--text span:not(.not-phone) {
+    font-family: Khand;
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 500; }
+    @media (max-width: 599px) {
+      .about--text span:not(.not-phone) {
+        font-size: 1.5rem; } }
+  .about--text__5 {
+    width: 50%; }
   .about--text__wrapper {
     grid-column: 2/3;
     align-self: center;
-    justify-self: start;
-    width: 100%; }
+    justify-self: start; }
+    @media (max-width: 599px) {
+      .about--text__wrapper {
+        text-align: center; } }
   .about--text__title {
+    width: 90%;
+    margin: auto;
     grid-column: 1/-1;
     margin-bottom: 3rem;
-    text-align: center;
-    align-self: end; }
+    align-self: end;
+    text-align: center; }
     .about--text__title__5 {
-      margin-bottom: 5rem; }
-  .about--text__work-with {
-    margin-bottom: 3rem; }
+      margin-top: 3rem; }
+    @media (min-width: 900px) {
+      .about--text__title__5 {
+        margin-bottom: 5rem; } }
 
+/* ================= ICONS ===================== */
 .about--icons {
   width: 18%;
   padding: 1.5%; }
@@ -109,8 +141,9 @@ body {
     .about--icons {
       width: 10%;
       padding: 1%; } }
-  .about--icons__container {
-    margin-top: 10vh; }
+  @media (max-width: 599px) {
+    .about--icons__container {
+      margin-top: 10vh; } }
   .about--icons__container__5 {
     margin: auto;
     width: 50%;
@@ -118,7 +151,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     position: relative; }
+    .about--icons__container__5 .buttons {
+      place-self: center; }
 
+/* ================= SLIDING ===================== */
 /* SLIDING */
 .slide-anim {
   visibility: hidden;
@@ -143,20 +179,6 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
-* {
-  font-family: Advent Pro, serif;
-  box-sizing: border-box;
-  margin: 0; }
-
-:root {
-  font-size: 62.5%; }
-
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0; }
-
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
 /* FONT SIZE FOR MOBILE */
@@ -168,20 +190,6 @@ body {
 /* ------------- MIXINS STYLE----------------- */
 /* -------------- MIXINS FUNCTIONS ------------------- */
 /* -------------- MIXINS RESPONSIVENESS ------------------- */
-* {
-  font-family: Advent Pro, serif;
-  box-sizing: border-box;
-  margin: 0; }
-
-:root {
-  font-size: 62.5%; }
-
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0; }
-
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
 /* FONT SIZE FOR MOBILE */
@@ -334,20 +342,6 @@ body {
     position: initial;
     place-self: center; }
 
-* {
-  font-family: Advent Pro, serif;
-  box-sizing: border-box;
-  margin: 0; }
-
-:root {
-  font-size: 62.5%; }
-
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0; }
-
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
 /* FONT SIZE FOR MOBILE */
@@ -447,6 +441,20 @@ body {
     border-bottom: 2px solid white;
     padding-bottom: 10px; }
 
+* {
+  font-family: Advent Pro, serif;
+  box-sizing: border-box;
+  margin: 0; }
+
+:root {
+  font-size: 62.5%; }
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
 a {
   text-decoration: none;
   font-weight: 700;
@@ -455,13 +463,23 @@ a {
 a {
   color: white;
   font-size: 1.2rem; }
+  @media (max-width: 599px) {
+    a {
+      color: white;
+      font-size: 0.9rem; } }
 
 h1 {
   color: white;
   font-size: 2.1rem;
   letter-spacing: 0.8rem;
   font-weight: 700;
-  line-height: 3rem; }
+  line-height: 2.5rem; }
+  @media (max-width: 599px) {
+    h1 {
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      letter-spacing: 0.45rem;
+      font-weight: 600; } }
 
 h2 {
   color: white;
@@ -475,7 +493,7 @@ h3 {
   font-size: 1.5rem;
   letter-spacing: 0.8rem;
   font-weight: 700;
-  line-height: 2rem; }
+  line-height: 1.8rem; }
 
 p {
   color: white;
@@ -585,35 +603,40 @@ li {
 .c-menu {
   width: 100vw;
   height: 8vh;
+  position: relative;
   position: fixed;
-  left: 0;
+  left: 0vh;
   z-index: 5;
-  background-color: none;
-  padding: 2% 0; }
+  background-color: none; }
+  .c-menu a {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
   .c-menu--top {
     top: 0; }
     .c-menu--top__link {
-      padding-top: 0.5rem; }
+      padding-bottom: 0.5rem; }
     .c-menu--top__link:hover {
       border-bottom: solid 1.3px white; }
   .c-menu--bottom {
-    bottom: 0; }
+    bottom: 0vh; }
     .c-menu--bottom__link {
-      padding-bottom: 0.5rem; }
+      padding-top: 0.5rem; }
     .c-menu--bottom__link:hover {
       border-top: solid 1.3px white; }
   .c-menu__link {
-    width: 100px;
-    height: 25px;
+    width: fit-content;
+    height: fit-content;
     transition: all ease 0.3s; }
     .c-menu__link--left {
-      float: left;
+      padding-left: 3.5%;
       text-align: end;
-      padding-left: 2%; }
+      left: 0%; }
     .c-menu__link--right {
-      float: right;
+      padding-right: 3.5%;
       text-align: start;
-      padding-right: 2%; }
+      right: 0%; }
 
 /* PROJECT PAGE */
 .project--wrapper {

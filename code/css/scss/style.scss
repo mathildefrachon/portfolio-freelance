@@ -3,6 +3,23 @@
 @import "modules/sides";
 @import "modules/subpage";
 
+* {
+  font-family: Advent Pro, serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   text-decoration: none;
   font-weight: 700;
@@ -18,6 +35,12 @@ a {
 
 h1 {
   @include title($font-large, white, $line-large);
+  @include for-phone-only {
+    font-size: 1.8rem;
+    line-height: $line-large;
+    letter-spacing: 0.45rem;
+    font-weight: 600;
+  }
 }
 
 h2 {
@@ -137,41 +160,41 @@ li {
 
 .c-menu {
   @include size(100vw, 8vh);
+  @include vertical-align(a);
   position: fixed;
-  left: 0;
+  left: 0vh;
   z-index: z(menu);
   background-color: none;
-  padding: 2% 0;
   &--top {
     top: 0;
     &__link {
-      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
     }
     &__link:hover {
       border-bottom: solid 1.3px white;
     }
   }
   &--bottom {
-    bottom: 0;
+    bottom: 0vh;
     &__link {
-      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
     }
     &__link:hover {
       border-top: solid 1.3px white;
     }
   }
   &__link {
-    @include size(100px, 25px);
+    @include size(fit-content, fit-content);
     transition: $transition-fast;
     &--left {
-      float: left;
+      padding-left: 3.5%;
       text-align: end;
-      padding-left: 2%;
+      left: 0%;
     }
     &--right {
-      float: right;
+      padding-right: 3.5%;
       text-align: start;
-      padding-right: 2%;
+      right: 0%;
     }
   }
 }
