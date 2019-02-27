@@ -154,8 +154,9 @@ function checkImgOrientation(downloadingImage, projectImg, projectWrap) {
 
     //for mobile
     if (window.innerWidth < 1000) {
-      projectImg.style.marginBottom = "20%";
-      projectWrap.style.height = "30vh";
+      //projectImg.style.marginBottom = "20%";
+      projectWrap.style.height = "auto";
+      projectWrap.style.width = "85vw";
     }
   } else if (downloadingImage.naturalWidth < downloadingImage.naturalHeight) {
     console.log("portrait img");

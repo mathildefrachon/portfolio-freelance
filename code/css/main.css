@@ -562,6 +562,9 @@ li {
   .screen__gallery {
     left: -100vw;
     background-color: #0b443f; }
+    @media (max-width: 599px) {
+      .screen__gallery {
+        height: auto; } }
     .screen__gallery #gallery {
       width: auto;
       height: 100vh;
@@ -570,6 +573,15 @@ li {
       white-space: nowrap;
       scroll-behavior: smooth;
       padding: 15vh 2vw 15vh 2vw; }
+      @media (max-width: 599px) {
+        .screen__gallery #gallery {
+          width: 100vw;
+          height: auto;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          white-space: nowrap;
+          scroll-behavior: smooth;
+          padding: 8vh 2vw 8vh 2vw; } }
   .screen__about {
     height: auto;
     left: 100vw;
@@ -619,6 +631,7 @@ li {
   width: 100vw;
   height: 8vh;
   position: relative;
+  transition: background-color 0.7s 0.1s ease;
   position: fixed;
   left: 0vh;
   z-index: 5;
@@ -663,6 +676,14 @@ li {
   transition: all ease 0.3s;
   border: white 3px solid;
   filter: contrast(0.9); }
+  @media (max-width: 599px) {
+    .project--wrapper {
+      width: 85vw;
+      height: 30vh;
+      display: block; } }
+  @media (max-width: 599px) {
+    .project--wrapper {
+      margin: 3vh auto; } }
   .project--wrapper:hover {
     transform: scale(1.03);
     filter: contrast(1); }
@@ -676,6 +697,10 @@ li {
 .project--img {
   width: auto;
   height: 100%; }
+  @media (max-width: 599px) {
+    .project--img {
+      width: 100%;
+      height: auto; } }
 
 .project--title {
   width: fit-content;
@@ -685,6 +710,12 @@ li {
   position: absolute;
   bottom: 3rem;
   z-index: 10; }
+  @media (max-width: 599px) {
+    .project--title {
+      margin-left: 1rem;
+      bottom: 1rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.45rem; } }
 
 /* LOADER */
 .loader {

@@ -98,6 +98,10 @@ function checkScreen(e) {
     }
 
     here(screenAbout);
+    document.querySelectorAll(".c-menu").forEach(function(menu) {
+      menu.style.backgroundColor = "rgb(154, 226, 214)";
+    });
+    // document.querySelector(".c-menu").classList.add("moveright");
     console.log("in about");
 
     screenAbout.addEventListener("animationend", function() {
@@ -134,6 +138,9 @@ function checkScreen(e) {
     }
 
     here(screenProject);
+    document.querySelectorAll(".c-menu").forEach(function(menu) {
+      menu.style.backgroundColor = "rgb(11, 68, 63)";
+    });
     console.log("project here");
     screenProject.addEventListener("animationend", function() {
       if (screenProject.classList.contains("here")) {

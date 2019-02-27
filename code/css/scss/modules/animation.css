@@ -5,7 +5,7 @@
 }
 
 .moveleft {
-  animation: moveleft 0.9s 0.1s ease forwards;
+  animation: moveleft 0.7s 0.1s ease forwards;
 }
 
 .moveleftWelcome {
@@ -13,7 +13,7 @@
 }
 
 .moverightWelcome {
-  animation: moverightWelcome 0.9s 0.2s ease forwards;
+  animation: moverightWelcome 0.7s 0.1s ease forwards;
 }
 
 /* .colorChange {
@@ -36,7 +36,6 @@
   padding: 0;
   /* transition: all ease 1s; */
 }
-
 
 .extend-side {
   width: 33vw;

@@ -102,9 +102,16 @@ li {
   &__gallery {
     left: -100vw;
     background-color: $dark-green;
+    @include for-phone-only {
+      height: auto;
+    }
     #gallery {
       @include scroll-div(scroll, hidden, auto, 100vh);
       padding: 15vh 2vw 15vh 2vw;
+      @include for-phone-only {
+        @include scroll-div(hidden, scroll, 100vw, auto);
+        padding: 8vh 2vw 8vh 2vw;
+      }
     }
   }
   &__about {
@@ -161,6 +168,7 @@ li {
 .c-menu {
   @include size(100vw, 8vh);
   @include vertical-align(a);
+  transition: background-color 0.7s 0.1s ease;
   position: fixed;
   left: 0vh;
   z-index: z(menu);
@@ -205,7 +213,14 @@ li {
   &--wrapper {
     @include size(45vw, 70vh);
     display: inline-block;
+    @include for-phone-only {
+      @include size(85vw, 30vh);
+      display: block;
+    }
     margin: 0 2vw;
+    @include for-phone-only {
+      margin: 3vh auto;
+    }
     box-shadow: $box-shadow;
     transition: $transition-fast;
     border: $border;
@@ -222,6 +237,9 @@ li {
   }
   &--img {
     @include size(auto, 100%);
+    @include for-phone-only {
+      @include size(100%, auto);
+    }
   }
   &--title {
     @include size(fit-content, fit-content);
@@ -230,6 +248,12 @@ li {
     position: absolute;
     bottom: 3rem;
     z-index: 10;
+    @include for-phone-only {
+      margin-left: 1rem;
+      bottom: 1rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.45rem;
+    }
   }
 }
 
