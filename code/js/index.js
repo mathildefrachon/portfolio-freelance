@@ -136,6 +136,12 @@ function imgLoaded(clone, oneProject) {
   downloadingImage.onload = function() {
     loader.classList.add("none");
     projectWrap.style.width = "auto";
+    //for mobile
+    if (window.innerWidth < 1000) {
+      console.log("change width sub mobile");
+      projectWrap.style.height = "auto";
+      projectWrap.style.width = "85vw";
+    }
     projectImg.classList.remove("none");
     checkImgOrientation(downloadingImage, projectImg, projectWrap);
   };
@@ -148,18 +154,11 @@ function imgLoaded(clone, oneProject) {
 function checkImgOrientation(downloadingImage, projectImg, projectWrap) {
   //   console.log(myProject);
   if (downloadingImage.naturalWidth > downloadingImage.naturalHeight) {
-    console.log("landscape img");
+    // console.log("landscape img");
     projectImg.classList.remove("portrait");
     projectImg.classList.add("landscape");
-
-    //for mobile
-    if (window.innerWidth < 1000) {
-      //projectImg.style.marginBottom = "20%";
-      projectWrap.style.height = "auto";
-      projectWrap.style.width = "85vw";
-    }
   } else if (downloadingImage.naturalWidth < downloadingImage.naturalHeight) {
-    console.log("portrait img");
+    // console.log("portrait img");
     projectImg.classList.add("portrait");
     projectImg.classList.remove("landscape");
   }
@@ -236,7 +235,14 @@ function displayProject(currentArray) {
   downloadingImage.onload = function() {
     console.log(downloadingImage);
     console.log(myProject);
-    document.querySelector(".project--img__sub").style.width = "auto";
+    if (window.innerWidth > 1000) {
+      document.querySelector(".project--img__sub").style.width = "auto";
+    }
+    //for mobile
+    if (window.innerWidth < 1000) {
+      console.log("change width sub mobile");
+      document.querySelector(".project--img__sub").style.height = "auto";
+    }
     loader.classList.add("none");
     checkImgOrientation(downloadingImage, imgVert, imgWrap);
   };

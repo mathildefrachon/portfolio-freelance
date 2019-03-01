@@ -11,12 +11,6 @@
 /* -------------- MIXINS FUNCTIONS ------------------- */
 /* -------------- MIXINS RESPONSIVENESS ------------------- */
 /* ============= FOR PHONE GENERAL ================ */
-.not-phone {
-  display: none; }
-  @media (min-width: 900px) {
-    .not-phone {
-      display: block; } }
-
 @media (max-width: 599px) {
   .about--img,
   .about--text,
@@ -241,7 +235,7 @@
     box-shadow: 2px 3px 23px -4px #082f2b; }
   .screen__side--wrapper__filter .wrapper-cat__link {
     width: 100%;
-    height: 7vh;
+    height: 20%;
     position: relative;
     display: block;
     padding-left: 2rem; }
@@ -302,13 +296,15 @@
     font-family: Khand;
     letter-spacing: 0.3rem;
     width: 100%;
-    height: 100%;
+    height: 50px;
     background-color: #d7f0ec;
     align-self: start;
     padding: 3%;
     border: none;
     grid-column: 1/3;
     box-shadow: 2px 3px 23px -4px #082f2b; }
+    .form--input__name {
+      align-self: end; }
     .form--input__msg {
       height: 100%; }
     .form--input :focus {
@@ -377,6 +373,16 @@
     float: right;
     height: 100vh;
     transition: all ease 0.3s; }
+    @media (max-width: 900px) {
+      .project--wrapper__sub {
+        width: 85vw;
+        height: 40vh;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto; } }
   .project--infos__sub {
     background-color: #082f2b;
     opacity: 0.9;
@@ -387,23 +393,27 @@
     height: 100vh;
     transition: all ease 0.3s; }
   .project--img__sub {
-    width: 65vw;
+    width: 45vw;
     height: 70vh;
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 0;
     left: 0;
+    right: 0;
     margin: auto;
     outline: solid white 4px;
     padding: 1%;
     /* MAKE THE FRAME */
     transition: all ease 0.3s; }
+    @media (max-width: 900px) {
+      .project--img__sub {
+        width: 100%;
+        height: auto; } }
     .project--img__sub:hover {
       transform: scale(1.03);
       filter: contrast(1); }
   .project--img--dots {
-    width: 100px;
+    width: fit-content;
     height: 10px;
     position: absolute;
     top: 80vh;
@@ -411,6 +421,14 @@
     right: 0;
     left: 0;
     margin: auto; }
+    @media (max-width: 900px) {
+      .project--img--dots {
+        top: 50vh; } }
+
+.project .c-menu--bottom__sub {
+  background-color: #082f2b;
+  height: 10vh;
+  padding: 4% 5%; }
 
 .buttons--cross__sub {
   width: 30px;
@@ -426,6 +444,13 @@
     right: 3vw; }
   .buttons--sub__previous {
     right: 10vw; }
+  @media (max-width: 599px) {
+    .buttons--sub__plus {
+      left: calc(95vw - 35px); }
+    .buttons--sub__next {
+      right: calc(35vw - 15px); }
+    .buttons--sub__previous {
+      left: calc(35vw - 15px); } }
 
 .point {
   display: inline-block;
@@ -546,6 +571,18 @@ li {
     width: 100%;
     height: 100%; }
 
+.not-phone {
+  display: none; }
+  @media (min-width: 900px) {
+    .not-phone {
+      display: block; } }
+
+.not-desk {
+  display: none; }
+  @media (max-width: 900px) {
+    .not-desk {
+      display: block; } }
+
 /* SCREENS */
 .screen {
   width: 100vw;
@@ -602,14 +639,21 @@ li {
       background-color: #082f2b; }
     .screen__side--wrapper {
       transition: all ease 0.3s;
-      height: 100%;
+      height: 100vh;
       display: grid; }
       .screen__side--wrapper__contact {
         padding: 8vh 8vh 8vh 4vh;
-        grid-template-rows: 1fr 8fr 8fr; }
+        grid-template-rows: 1fr 8fr 4fr; }
+        @media (max-width: 600px) {
+          .screen__side--wrapper__contact {
+            padding: 4vh; } }
       .screen__side--wrapper__filter {
         padding: 8vh 0 8vh 8vh;
         grid-template-rows: 10fr 10fr 1fr 8fr; }
+        @media (max-width: 900px) {
+          .screen__side--wrapper__filter {
+            grid-template-rows: 1fr;
+            padding: 0; } }
 
 /* WELCOMING PAGE */
 #logo-front {

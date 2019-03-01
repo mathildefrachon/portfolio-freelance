@@ -35,10 +35,9 @@ function initScreen() {
     screenWelcome.classList.remove("here");
     screenWelcome.classList.add("none");
     screenProject.style.left = "0";
-    // here(screenProject);
-    // notHere(screenWelcome);
-    // none(screenWelcome);
-    // screenProject.style.left = "0";
+    document.querySelectorAll(".c-menu").forEach(function(menu) {
+      menu.style.backgroundColor = "rgb(11, 68, 63)";
+    });
     const filter_link = document.querySelector("#a-filters");
     filter_link.classList.remove("none");
   }

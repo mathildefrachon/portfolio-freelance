@@ -3,13 +3,6 @@
 
 /* ============= FOR PHONE GENERAL ================ */
 
-.not-phone {
-  display: none;
-  @include for-tablet-landscape-up {
-    display: block;
-  }
-}
-
 @include for-phone-only {
   .about--img,
   .about--text,
