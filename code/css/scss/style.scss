@@ -18,6 +18,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -120,12 +121,18 @@ li {
       height: auto;
     }
     #gallery {
-      @include scroll-div(scroll, hidden, auto, 100vh);
+      //@include vertical-align(".project--wrapper");
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; // for ios mobile
+      @include scroll-div(auto, hidden, auto, 100vh);
       padding: 15vh 2vw 15vh 2vw;
       @include for-phone-only {
         @include scroll-div(hidden, scroll, 100vw, auto);
         padding: 8vh 2vw 8vh 2vw;
       }
+      // @include for-tablet-portrait-down {
+      //   padding: 25vh 2vw 25vh 2vw;
+      // }
     }
   }
   &__about {
@@ -133,6 +140,8 @@ li {
     left: 100vw;
     background-color: $mint-green;
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch; // for ios mobile
   }
 
   //SIDES
@@ -179,7 +188,7 @@ li {
 #logo-front {
   @include centered;
   @include size(250px, auto);
-  @include for-tablet-landscape-up {
+  @include for-tablet-portrait-up {
     @include size(400px, 300px);
   }
 }
@@ -232,19 +241,22 @@ li {
 
 .project {
   &--wrapper {
-    @include size(45vw, 70vh);
-    display: inline-block;
+    @include size(auto, 70vh);
+    @include for-tablet-portrait-down {
+      @include size(85vw, auto);
+    }
     @include for-phone-only {
       @include size(85vw, 30vh);
       display: block;
     }
+    display: inline-block;
+    scroll-snap-align: center;
     margin: 0 2vw;
     @include for-phone-only {
       margin: 3vh auto;
     }
     box-shadow: $box-shadow;
     transition: $transition-fast;
-    border: $border;
     filter: contrast(0.9);
     &:hover {
       transform: scale(1.03);
@@ -257,8 +269,9 @@ li {
     display: block;
   }
   &--img {
+    border: $border;
     @include size(auto, 100%);
-    @include for-phone-only {
+    @include for-tablet-portrait-down {
       @include size(100%, auto);
     }
   }
@@ -297,4 +310,19 @@ li {
   100% {
     transform: rotate(360deg);
   }
+}
+
+// JS CLASSES
+
+.width0 {
+  width: 0;
+  height: 100vh;
+  padding: 0;
+  /* transition: all ease 1s; */
+}
+
+.extend-side {
+  width: 33vw;
+  height: 100vh;
+  /* transition: all ease 1s; */
 }

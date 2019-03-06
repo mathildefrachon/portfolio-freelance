@@ -1,5 +1,15 @@
 "use strict";
 
+// export let urlParams = new URLSearchParams(window.location.search);
+// export let cat = urlParams.get("category");
+// export let activeFilter = cat;
+// export let imgArray;
+// export let currentArray = [];
+// export let filterScreen = document.querySelector(".screen__side__filter");
+// export let filterContent = document.querySelector(
+//   ".screen__side--wrapper__filter"
+// );
+
 let urlParams = new URLSearchParams(window.location.search);
 let cat = urlParams.get("category");
 let activeFilter = cat;
@@ -135,10 +145,12 @@ function imgLoaded(clone, oneProject) {
 
   downloadingImage.onload = function() {
     loader.classList.add("none");
-    projectWrap.style.width = "auto";
+    if (window.innerWidth > 899) {
+      projectWrap.style.width = "auto";
+    }
     //for mobile
-    if (window.innerWidth < 1000) {
-      console.log("change width sub mobile");
+    else {
+      console.log("change width img mobile");
       projectWrap.style.height = "auto";
       projectWrap.style.width = "85vw";
     }
@@ -180,7 +192,7 @@ function clearList() {
 
 // ------------------- FILTER THE ARRAY --------------------- //
 
-// SET ACTIVE FILTER NUMBER
+// SET ACTIVE FILTER NUMBER -- TO EXPORT
 function clickedFilter(event) {
   console.log("clickedFilter");
   console.log(this);
@@ -208,7 +220,7 @@ function filterByCat(filter) {
   return currentArray;
 }
 
-// SET URL SUBPAGE WITH WPID OF POST OR FILTER OF CATEGORY
+// SET URL SUBPAGE WITH WPID OF POST OR FILTER OF CATEGORY -- TO EXPORT
 function clickedPost(event) {
   const postClicked = event.target;
   console.log(postClicked);
@@ -235,14 +247,14 @@ function displayProject(currentArray) {
   downloadingImage.onload = function() {
     console.log(downloadingImage);
     console.log(myProject);
-    if (window.innerWidth > 1000) {
-      document.querySelector(".project--img__sub").style.width = "auto";
-    }
-    //for mobile
-    if (window.innerWidth < 1000) {
-      console.log("change width sub mobile");
-      document.querySelector(".project--img__sub").style.height = "auto";
-    }
+    // if (window.innerWidth > 1000) {
+    //   document.querySelector(".project--img__sub").style.width = "auto";
+    // }
+    // //for mobile
+    // if (window.innerWidth < 1199 && orientation) {
+    //   console.log("change width sub mobile");
+    //   document.querySelector(".project--img__sub").style.height = "auto";
+    // }
     loader.classList.add("none");
     checkImgOrientation(downloadingImage, imgVert, imgWrap);
   };
@@ -283,7 +295,7 @@ function displayDots(myProject) {
   document.querySelector("#dot0").classList.add("dotActive");
 }
 
-/* ------------------  SIDE MENU AND CONTACT  ---------------- */
+/* ------------------  SIDE MENU AND CONTACT -- TO EXPORT  ---------------- */
 
 function openSide(screen, content) {
   extend(screen);
@@ -295,7 +307,7 @@ function closeSide(screen, content) {
   setTimeout(extend, 1000, screen);
 }
 
-/* ---------------------- EFFECT FUNCTIONS ------------------- */
+/* ---------------------- EFFECT FUNCTIONS -- TO EXPORT ------------------- */
 
 function none(element) {
   element.classList.add(none);

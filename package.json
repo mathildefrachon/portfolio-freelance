@@ -8,6 +8,7 @@
     "live-server": "live-server --open=code",
     "dev-sass": "node-sass code/css/scss/style.scss code/css/main.css --watch",
     "live-sass": "npm run dev-sass | npm run live-server",
+    "live-parcel": "cd code && parcel index.html",
     "build-parcel": "parcel build code/index.html --public-url .",
     "build": "npm run dist-clear && npm run build-parcel && npm run build-static-path",
     "build-server": "cd dist && live-server --no-browser",
@@ -17,7 +18,9 @@
   },
   "author": "Mathilde Frachon",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "gsap": "^2.1.1"
+  },
   "devDependencies": {
     "autoprefixer": "^9.4.9",
     "cssnano": "^4.1.10",

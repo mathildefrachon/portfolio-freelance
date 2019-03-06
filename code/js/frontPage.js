@@ -1,12 +1,11 @@
+//import { TimelineMax} from "gsap/all";
+//import TweenMax from "gsap/TweenMax";
 
-// import { TimelineMax, CSSPlugin, AttrPlugin } from "gsap/all";
-
-// //without this line, CSSPlugin and AttrPlugin may get dropped by your bundler...
-// const plugins = [CSSPlugin, AttrPlugin];
+//without this line, CSSPlugin and AttrPlugin may get dropped by your bundler...
+//const plugins = [CSSPlugin, AttrPlugin];
 // NOT WORKING
 
-"use strict";
-
+("use strict");
 
 window.onload = startAnimFront();
 
@@ -14,21 +13,21 @@ function startAnimFront() {
   let t = new TimelineMax();
   console.log("start anim");
   t.fromTo(
-    "#welcome_screen",
+    ".screen__welcome",
     0.5, // duration
     { opacity: 0.7, alpha: 1 },
     { opacity: 1, alpha: 0, ease: Power1.easeOut },
     0 // starting in the scope
   )
     .fromTo(
-      "#welcome_screen",
+      ".screen__welcome",
       3,
       { scale: 1.2 },
       { ease: Back.easeOut, scale: 1.1 },
       0
     )
     .fromTo(
-      "#logo",
+      "#logo-front",
       3,
       { opacity: 0.7, scale: 0.7 },
       { ease: Back.easeOut, opacity: 1, scale: 0.9 },
@@ -36,13 +35,18 @@ function startAnimFront() {
     )
 
     .fromTo(
-      "#top_nav, #bottom_nav",
+      ".c-menu",
       1,
       { opacity: 0 },
       { ease: Power1.easeinOut, opacity: 1 },
       1
     )
-    .to("#logo", 0.7, { left: "-100vw", opacity: 0, ease: Power1.easeOut }, 3.5)
+    .to(
+      "#logo-front",
+      0.7,
+      { left: "-100vw", opacity: 0, ease: Power1.easeOut },
+      3.5
+    )
     .from(
       "#under_const",
       0.7,

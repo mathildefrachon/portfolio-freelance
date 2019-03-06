@@ -8,11 +8,11 @@
     float: right;
     height: 100vh;
     transition: $transition-fast;
-    @include for-tablet-landscape-down {
-      width: 85vw;
-      height: 40vh;
-      @include centered;
-    }
+    // @include for-tablet-landscape-down {
+    //   width: 85vw;
+    //   height: 40vh;
+    //   @include centered;
+    // }
   }
   &--infos__sub {
     background-color: $black-green;
@@ -25,11 +25,11 @@
     transition: $transition-fast;
   }
   &--img__sub {
-    width: 45vw;
+    width: auto;
     height: 70vh;
     @include centered;
-    @include for-tablet-landscape-down {
-      width: 100%;
+    @include for-tablet-portrait-down {
+      width: 85vw;
       height: auto;
     }
     outline: solid white 4px;
@@ -58,10 +58,12 @@
 // SUBPAGE MENU
 
 .project {
-  .c-menu--bottom__sub {
-    background-color: $black-green;
-    height: 10vh;
-    padding: 4% 5%;
+  @include for-tablet-portrait-down {
+    .c-menu--bottom__sub {
+      background-color: $black-green;
+      height: 10vh;
+      padding: 4% 5%;
+    }
   }
 }
 
@@ -82,7 +84,7 @@
     &__previous {
       right: 10vw;
     }
-    @include for-phone-only {
+    @include for-tablet-portrait-down {
       &__plus {
         left: calc(95vw - 35px);
       }

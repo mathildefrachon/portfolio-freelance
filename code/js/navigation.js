@@ -1,4 +1,16 @@
 "use strict";
+"use strict";
+// import {
+//   clickedFilter,
+//   clickedPost,
+//   openSide,
+//   closeSide,
+//   filterScreen,
+//   filterContent,
+//   extend,
+//   opacity,
+//   none
+// } from "./index.js";
 
 let contactScreen = document.querySelector(".screen__side__contact");
 let contactContent = document.querySelector(".screen__side--wrapper__contact");

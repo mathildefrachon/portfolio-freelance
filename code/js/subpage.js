@@ -1,4 +1,11 @@
 "use strict";
+// import {
+//   urlParams,
+//   currentArray,
+//   cat,
+//   activeFilter,
+//   imgArray
+// } from "./index.js";
 
 // get the index of the project from the url
 let index = urlParams.get("index");

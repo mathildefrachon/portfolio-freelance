@@ -11,13 +11,20 @@
 /* -------------- MIXINS FUNCTIONS ------------------- */
 /* -------------- MIXINS RESPONSIVENESS ------------------- */
 /* ============= FOR PHONE GENERAL ================ */
-@media (max-width: 599px) {
+@media (max-width: 1199px) and (orientation: portrait) {
   .about--img,
   .about--text,
   .about--icons__container {
     margin: auto;
     width: 70%;
-    margin-top: 1.5rem; }
+    margin-top: 5rem; } }
+  @media (max-width: 1199px) and (orientation: portrait) and (max-width: 599px) {
+    .about--img,
+    .about--text,
+    .about--icons__container {
+      margin-top: 1.5rem; } }
+
+@media (max-width: 1199px) and (orientation: portrait) {
     .about--img__wrapper,
     .about--text__wrapper,
     .about--icons__container__wrapper {
@@ -28,16 +35,19 @@
   width: 100%;
   height: 100vh;
   position: relative;
+  scroll-snap-align: center;
   padding-top: 15vh; }
+  @media (max-width: 1199px) and (orientation: portrait) {
+    .about--wrapper {
+      padding-top: 20vh;
+      text-align: center; } }
   .about--wrapper__1, .about--wrapper__2 {
     padding-top: 25vh;
     text-align: center; }
   @media (max-width: 599px) {
-    .about--wrapper {
-      text-align: center; }
-      .about--wrapper__3 {
-        height: 115vh;
-        padding-top: 8vh; } }
+    .about--wrapper__3 {
+      height: 115vh;
+      padding-top: 8vh; } }
   @media (min-width: 900px) {
     .about--wrapper {
       display: grid;
@@ -59,7 +69,7 @@
         font-weight: 600; } }
   .about--wrapper__not-desk {
     display: none; }
-    @media (max-width: 599px) {
+    @media (max-width: 1199px) and (orientation: portrait) {
       .about--wrapper__not-desk {
         display: block; } }
 
@@ -68,9 +78,7 @@
   width: auto;
   height: auto;
   outline: solid 2px white;
-  margin: auto;
-  max-height: 500px;
-  max-width: 70%; }
+  margin: auto; }
   .about--img__1 {
     position: absolute;
     top: 0;
@@ -79,6 +87,14 @@
     right: 0;
     margin: auto;
     outline: none; }
+  @media (max-width: 599px) {
+    .about--img {
+      max-height: 500px;
+      max-width: 70%; } }
+  @media (max-width: 1199px) and (orientation: portrait) {
+    .about--img {
+      max-height: 500px;
+      max-width: 100%; } }
   @media (min-width: 900px) {
     .about--img {
       max-height: 500px;
@@ -111,7 +127,7 @@
     color: #0b443f;
     font-family: Khand;
     margin-top: 3rem; }
-    @media (max-width: 599px) {
+    @media (max-width: 1199px) and (orientation: portrait) {
       .about--text__5 {
         width: 50%;
         margin: auto; } }
@@ -119,7 +135,7 @@
     grid-column: 2/3;
     align-self: center;
     justify-self: start; }
-    @media (max-width: 599px) {
+    @media (max-width: 1199px) and (orientation: portrait) {
       .about--text__wrapper {
         text-align: center; } }
   .about--text__title {
@@ -145,7 +161,7 @@
     .about--icons {
       width: 10%;
       padding: 1%; } }
-  @media (max-width: 599px) {
+  @media (max-width: 1199px) and (orientation: portrait) {
     .about--icons__container {
       margin-top: 10vh; } }
   .about--icons__container__5 {
@@ -165,16 +181,15 @@
 
 /* ================= SLIDING ===================== */
 /* SLIDING */
-.slide-anim {
+.slideanim {
   visibility: hidden;
-  visibility: visible;
-  /*For old IE browsers IE6-8 */ }
+  visibility: visible\9; }
 
-.slide-anim .slide {
+.slideanim.slide {
   visibility: visible;
   animation: slide 1s; }
 
-.slide-anim::after {
+.slideanim::after {
   /* useful when its child elements are float:left; */
   content: "";
   display: table;
@@ -373,16 +388,6 @@
     float: right;
     height: 100vh;
     transition: all ease 0.3s; }
-    @media (max-width: 900px) {
-      .project--wrapper__sub {
-        width: 85vw;
-        height: 40vh;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto; } }
   .project--infos__sub {
     background-color: #082f2b;
     opacity: 0.9;
@@ -393,7 +398,7 @@
     height: 100vh;
     transition: all ease 0.3s; }
   .project--img__sub {
-    width: 45vw;
+    width: auto;
     height: 70vh;
     position: absolute;
     top: 0;
@@ -405,9 +410,9 @@
     padding: 1%;
     /* MAKE THE FRAME */
     transition: all ease 0.3s; }
-    @media (max-width: 900px) {
+    @media (max-width: 1199px) and (orientation: portrait) {
       .project--img__sub {
-        width: 100%;
+        width: 85vw;
         height: auto; } }
     .project--img__sub:hover {
       transform: scale(1.03);
@@ -425,10 +430,11 @@
       .project--img--dots {
         top: 50vh; } }
 
-.project .c-menu--bottom__sub {
-  background-color: #082f2b;
-  height: 10vh;
-  padding: 4% 5%; }
+@media (max-width: 1199px) and (orientation: portrait) {
+  .project .c-menu--bottom__sub {
+    background-color: #082f2b;
+    height: 10vh;
+    padding: 4% 5%; } }
 
 .buttons--cross__sub {
   width: 30px;
@@ -444,7 +450,7 @@
     right: 3vw; }
   .buttons--sub__previous {
     right: 10vw; }
-  @media (max-width: 599px) {
+  @media (max-width: 1199px) and (orientation: portrait) {
     .buttons--sub__plus {
       left: calc(95vw - 35px); }
     .buttons--sub__next {
@@ -493,7 +499,8 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  scroll-behavior: smooth; }
 
 a {
   text-decoration: none;
@@ -603,9 +610,11 @@ li {
       .screen__gallery {
         height: auto; } }
     .screen__gallery #gallery {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
       width: auto;
       height: 100vh;
-      overflow-x: scroll;
+      overflow-x: auto;
       overflow-y: hidden;
       white-space: nowrap;
       scroll-behavior: smooth;
@@ -623,7 +632,9 @@ li {
     height: auto;
     left: 100vw;
     background-color: #9ae2d6;
-    scroll-behavior: smooth; }
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch; }
   .screen__side {
     position: fixed;
     z-index: 15;
@@ -644,7 +655,7 @@ li {
       .screen__side--wrapper__contact {
         padding: 8vh 8vh 8vh 4vh;
         grid-template-rows: 1fr 8fr 4fr; }
-        @media (max-width: 600px) {
+        @media (max-width: 1199px) and (orientation: portrait) {
           .screen__side--wrapper__contact {
             padding: 4vh; } }
       .screen__side--wrapper__filter {
@@ -665,7 +676,7 @@ li {
   margin: auto;
   width: 250px;
   height: auto; }
-  @media (min-width: 900px) {
+  @media (min-width: 600px) {
     #logo-front {
       width: 400px;
       height: 300px; } }
@@ -712,14 +723,18 @@ li {
 
 /* PROJECT PAGE */
 .project--wrapper {
-  width: 45vw;
+  width: auto;
   height: 70vh;
   display: inline-block;
+  scroll-snap-align: center;
   margin: 0 2vw;
   box-shadow: 2px 3px 23px -4px #082f2b;
   transition: all ease 0.3s;
-  border: white 3px solid;
   filter: contrast(0.9); }
+  @media (max-width: 1199px) and (orientation: portrait) {
+    .project--wrapper {
+      width: 85vw;
+      height: auto; } }
   @media (max-width: 599px) {
     .project--wrapper {
       width: 85vw;
@@ -739,9 +754,10 @@ li {
   display: block; }
 
 .project--img {
+  border: white 3px solid;
   width: auto;
   height: 100%; }
-  @media (max-width: 599px) {
+  @media (max-width: 1199px) and (orientation: portrait) {
     .project--img {
       width: 100%;
       height: auto; } }
@@ -782,3 +798,14 @@ li {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+
+.width0 {
+  width: 0;
+  height: 100vh;
+  padding: 0;
+  /* transition: all ease 1s; */ }
+
+.extend-side {
+  width: 33vw;
+  height: 100vh;
+  /* transition: all ease 1s; */ }

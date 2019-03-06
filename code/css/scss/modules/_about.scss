@@ -3,13 +3,16 @@
 
 /* ============= FOR PHONE GENERAL ================ */
 
-@include for-phone-only {
+@include for-tablet-portrait-down {
   .about--img,
   .about--text,
   .about--icons__container {
     margin: auto;
     width: 70%;
-    margin-top: 1.5rem;
+    margin-top: 5rem;
+    @include for-phone-only {
+      margin-top: 1.5rem;
+    }
     &__wrapper {
       width: 100%;
     }
@@ -22,8 +25,12 @@
   // ALL SIZES
   @include size(100%, 100vh);
   position: relative;
-
+  scroll-snap-align: center;
   padding-top: 15vh;
+  @include for-tablet-portrait-down {
+    padding-top: 20vh;
+    text-align: center; // center img on mobile
+  }
   // MOBILE UP TO TABLET
   &__1,
   &__2 {
@@ -31,7 +38,6 @@
     text-align: center;
   }
   @include for-phone-only {
-    text-align: center; // center img on mobile
     &__3 {
       height: 115vh;
       padding-top: 8vh; // just = menu height
@@ -65,7 +71,7 @@
   }
   &__not-desk {
     display: none;
-    @include for-phone-only {
+    @include for-tablet-portrait-down {
       display: block;
     }
   }
@@ -82,10 +88,17 @@
     @include centered;
     outline: none;
   }
-  // FOR MOBILE UP TO TABLET LANDSCAPE
-  max-height: 500px;
-  max-width: 70%;
-  // FOR TABLET UP
+  // FOR MOBILE UP TO TABLET PORTRAIT
+  @include for-phone-only {
+    max-height: 500px;
+    max-width: 70%;
+  }
+  // FOR TABLET PORTRAIT
+  @include for-tablet-portrait-only {
+    max-height: 500px;
+    max-width: 100%;
+  }
+  // FOR TABLET LAND UP
   @include for-tablet-landscape-up {
     max-height: 500px;
     max-width: 100%;
@@ -121,7 +134,7 @@
     font-weight: 500;
   }
   &__5 {
-    @include for-phone-only {
+    @include for-tablet-portrait-down {
       width: 50%;
       margin: auto;
     }
@@ -134,7 +147,7 @@
     align-self: center;
     justify-self: start;
     // PHONE
-    @include for-phone-only {
+    @include for-tablet-portrait-down {
       text-align: center;
     }
   }
@@ -168,7 +181,7 @@
     width: 10%;
     padding: 1%;
   }
-  @include for-phone-only {
+  @include for-tablet-portrait-down {
     &__container {
       margin-top: 10vh;
     }
@@ -195,15 +208,17 @@
 /* ================= SLIDING ===================== */
 
 /* SLIDING */
-.slide-anim {
+.slideanim {
+  // ATTENTION DONT CHANGE NAME
   visibility: hidden;
-  visibility: visible; /*For old IE browsers IE6-8 */
+  // visibility: visible\9; /*For old IE browsers IE6-8 */
+  visibility: visible\9;
 }
-.slide-anim .slide {
+.slideanim.slide {
   visibility: visible;
   animation: slide 1s;
 }
-.slide-anim::after {
+.slideanim::after {
   /* useful when its child elements are float:left; */
   content: "";
   display: table;
