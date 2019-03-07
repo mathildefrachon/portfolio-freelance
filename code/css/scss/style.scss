@@ -40,6 +40,10 @@ a {
 h1 {
   // FOR DESKTOP DOWN
   @include title($font-large, white, $line-large);
+  // FOR TABLET HD PORTRAIT ONLY
+  @include for-tablet-HD-portrait-only {
+    @include title($font-xl, white, $line-xl);
+  }
   // FOR PHONE ONLY
   @include for-phone-only {
     font-size: 1.8rem;

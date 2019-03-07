@@ -1,5 +1,9 @@
 @import "partial-variables";
 
+/* ============================================ */
+/* =============== FILTERS ==================== */
+/* ============================================ */
+
 /* BG COLOR CAT LINKS */
 
 $color-link: (
@@ -20,6 +24,7 @@ $color-link: (
 
 .screen__side--wrapper__filter {
   .wrapper-cat {
+    // FOR DESKTOP DOWN
     padding: 2rem 2rem 1rem 2rem;
     &__cat {
       @include size(100%, auto);
@@ -45,6 +50,9 @@ $color-link: (
       border-bottom: solid 2px white;
       align-self: end;
       padding: 0.5rem 2rem 0.5rem 0;
+      &__not-desk {
+        display: none;
+      }
     }
     &__projects {
       align-self: end;
@@ -63,13 +71,32 @@ $color-link: (
       }
     }
   }
+  // FOR TABLET HD PORTRAIT DOWN
+  @include for-tablet-HD-portrait-down {
+    padding: 0;
+    .wrapper-cat {
+      &__link {
+        padding-left: 7rem;
+      }
+      &__keywords__not-desk {
+        display: block;
+        position: absolute;
+        top: 70%;
+      }
+    }
+    .not-phone {
+      display: none;
+    }
+  }
 }
 
 .buttons--cross__filter {
   left: 2vw;
 }
 
-/* CONTACT PAGE */
+/* ============================================ */
+/* =============== CONTACT ==================== */
+/* ============================================ */
 
 .screen__side__contact {
   h1 {

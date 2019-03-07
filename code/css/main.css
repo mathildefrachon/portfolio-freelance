@@ -234,6 +234,9 @@
 /* ------------- MIXINS STYLE----------------- */
 /* -------------- MIXINS FUNCTIONS ------------------- */
 /* -------------- MIXINS RESPONSIVENESS ------------------- */
+/* ============================================ */
+/* =============== FILTERS ==================== */
+/* ============================================ */
 /* BG COLOR CAT LINKS */
 .cat__link--frontend {
   background-color: #6a9793; }
@@ -280,6 +283,8 @@
     border-bottom: solid 2px white;
     align-self: end;
     padding: 0.5rem 2rem 0.5rem 0; }
+    .screen__side--wrapper__filter .wrapper-cat__keywords__not-desk {
+      display: none; }
   .screen__side--wrapper__filter .wrapper-cat__projects {
     align-self: end; }
     .screen__side--wrapper__filter .wrapper-cat__projects ul {
@@ -294,10 +299,24 @@
         letter-spacing: 0.5rem;
         height: fit-content; }
 
+@media (max-width: 1199px) and (orientation: portrait) {
+  .screen__side--wrapper__filter {
+    padding: 0; }
+    .screen__side--wrapper__filter .wrapper-cat__link {
+      padding-left: 7rem; }
+    .screen__side--wrapper__filter .wrapper-cat__keywords__not-desk {
+      display: block;
+      position: absolute;
+      top: 70%; }
+    .screen__side--wrapper__filter .not-phone {
+      display: none; } }
+
 .buttons--cross__filter {
   left: 2vw; }
 
-/* CONTACT PAGE */
+/* ============================================ */
+/* =============== CONTACT ==================== */
+/* ============================================ */
 .screen__side__contact h1 {
   padding-top: 5%;
   padding-left: 5%;
@@ -531,6 +550,13 @@ h1 {
   letter-spacing: 0.8rem;
   font-weight: 700;
   line-height: 2.5rem; }
+  @media (max-width: 1199px) and (min-width: 900px) and (orientation: portrait) {
+    h1 {
+      color: white;
+      font-size: 2.5rem;
+      letter-spacing: 0.8rem;
+      font-weight: 700;
+      line-height: 2.7rem; } }
   @media (max-width: 599px) {
     h1 {
       font-size: 1.8rem;
