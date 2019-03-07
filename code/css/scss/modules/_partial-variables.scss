@@ -151,75 +151,105 @@ $z-layers: (
 
 // MOBILE FIRST
 
-@mixin for-phone-only {
-  @media (max-width: 599px) {
-    @content;
-  }
-}
-@mixin for-tablet-portrait-up {
-  @media (min-width: 600px) {
-    @content;
-  }
-}
-@mixin for-tablet-portait-only {
-  @media (min-width: 600px) and (max-width: 899px) and (orientation: portrait) {
-    @content;
-  }
-}
-@mixin for-tablet-landscape-up {
-  @media (min-width: 900px) {
-    @content;
-  }
-}
-@mixin for-tablet-landscape-only {
-  @media (min-width: 900px) and (max-width: 1199px) {
-    @content;
-  }
-}
-@mixin for-desktop-up {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-@mixin for-desktop-only {
-  @media (min-width: 1200px) and (max-width: 1799px) {
-    @content;
-  }
-}
-@mixin for-big-desktop-up {
-  @media (min-width: 1800px) {
-    @content;
-  }
-}
+// @mixin for-phone-only {
+//   @media (max-width: 599px) {
+//     @content;
+//   }
+// }
+// @mixin for-tablet-portrait-up {
+//   @media (min-width: 600px) {
+//     @content;
+//   }
+// }
+// @mixin for-tablet-portait-only {
+//   @media (min-width: 600px) and (max-width: 899px) and (orientation: portrait) {
+//     @content;
+//   }
+// }
+// @mixin for-tablet-landscape-up {
+//   @media (min-width: 900px) {
+//     @content;
+//   }
+// }
+// @mixin for-tablet-landscape-only {
+//   @media (min-width: 900px) and (max-width: 1199px) {
+//     @content;
+//   }
+// }
+// @mixin for-desktop-up {
+//   @media (min-width: 1200px) {
+//     @content;
+//   }
+// }
+// @mixin for-desktop-only {
+//   @media (min-width: 1200px) and (max-width: 1799px) {
+//     @content;
+//   }
+// }
+// @mixin for-big-desktop-up {
+//   @media (min-width: 1800px) {
+//     @content;
+//   }
+// }
 
 // DESKTOP FIRST
 
-@mixin for-tablet-portrait-down {
-  @media (max-width: 1199px) and (orientation: portrait) {
-    @content;
-  }
-}
-
-@mixin for-tablet-landscape-down {
-  @media (max-width: 900px) {
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
     @content;
   }
 }
 
 @mixin for-desktop-down {
+  @media (max-width: 1799px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-only {
+  @media (max-width: 1799px) and (min-width: 1200px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-down {
   @media (max-width: 1199px) {
     @content;
   }
 }
 
-@mixin for-big-desktop-down {
-  @media (max-width: 1800px) {
+@mixin for-tablet-landscape-only {
+  @media (max-width: 1199px) and (min-width: 900px) and (orientation: landscape) {
     @content;
   }
 }
 
-@mixin for-big-desktop-up {
-  @media (min-width: 1800px) {
+@mixin for-tablet-HD-portrait-down {
+  @media (max-width: 1199px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-down {
+  @media (max-width: 899px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin for-tablet-HD-portrait-only {
+  @media (max-width: 1199px) and (min-width: 900px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-only {
+  @media (max-width: 899px) and (min-width: 600px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
     @content;
   }
 }

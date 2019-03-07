@@ -145,7 +145,7 @@ function imgLoaded(clone, oneProject) {
 
   downloadingImage.onload = function() {
     loader.classList.add("none");
-    if (window.innerWidth > 899) {
+    if (window.innerWidth > 1199) {
       projectWrap.style.width = "auto";
     }
     //for mobile

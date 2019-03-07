@@ -1,17 +1,20 @@
 /* ABOUT SCREEN */
 @import "partial-variables";
 
-/* ============= FOR PHONE GENERAL ================ */
+/* ============================================ */
+/* =============== GENERAL ==================== */
+/* ============================================ */
 
 @include for-tablet-portrait-down {
   .about--img,
   .about--text,
   .about--icons__container {
-    margin: auto;
-    width: 70%;
-    margin-top: 5rem;
+    // margin: auto;
+    // width: 70%;
+    // margin-top: 5rem;
     @include for-phone-only {
       margin-top: 1.5rem;
+      width: 100%;
     }
     &__wrapper {
       width: 100%;
@@ -19,7 +22,9 @@
   }
 }
 
-/* ================= CONTAINERS ===================== */
+/* ============================================ */
+/* =============== CONTAINERS ================= */
+/* ============================================ */
 
 .about--wrapper {
   // ALL SIZES
@@ -27,24 +32,15 @@
   position: relative;
   scroll-snap-align: center;
   padding-top: 15vh;
-  @include for-tablet-portrait-down {
-    padding-top: 20vh;
-    text-align: center; // center img on mobile
-  }
-  // MOBILE UP TO TABLET
+
   &__1,
   &__2 {
     padding-top: 25vh;
     text-align: center;
   }
-  @include for-phone-only {
-    &__3 {
-      height: 115vh;
-      padding-top: 8vh; // just = menu height
-    }
-  }
-  // TABLET UP
-  @include for-tablet-landscape-up {
+
+  // FOR DESKTOP DOWN
+  @include for-desktop-down {
     display: grid;
     grid-template-columns: 45% 45%;
     grid-gap: 10%;
@@ -69,37 +65,47 @@
       }
     }
   }
+  // FOR MOBILE ONLY
+  @include for-phone-only {
+    display: block;
+    padding: 20vh 15vw 15vh 15vw;
+    text-align: center; // center img on mobile
+    &__3 {
+      height: 115vh;
+      padding-top: 8vh; // just = menu height
+    }
+  }
+
+  // &__5 {
+  //   .not-phone {
+  //     display: block; // no margin top with inline
+  //     @include for-phone-only {
+  //       display: none;
+  //     }
+  //   }
+  // }
+
   &__not-desk {
     display: none;
-    @include for-tablet-portrait-down {
+    // FOR PHONE ONLY
+    @include for-phone-only {
       display: block;
     }
   }
 }
 
-/* ================= IMAGES ===================== */
+/* ============================================ */
+/* ================= IMAGES =================== */
+/* ============================================ */
 
 .about--img {
   // ALL SIZES
   @include size(auto, auto);
   outline: solid 2px white;
   margin: auto;
-  &__1 {
-    @include centered;
-    outline: none;
-  }
-  // FOR MOBILE UP TO TABLET PORTRAIT
-  @include for-phone-only {
-    max-height: 500px;
-    max-width: 70%;
-  }
-  // FOR TABLET PORTRAIT
-  @include for-tablet-portrait-only {
-    max-height: 500px;
-    max-width: 100%;
-  }
-  // FOR TABLET LAND UP
-  @include for-tablet-landscape-up {
+
+  // FOR DESKTOP DOWN
+  @include for-desktop-down {
     max-height: 500px;
     max-width: 100%;
     align-self: center;
@@ -108,46 +114,66 @@
       max-width: 30%;
       position: initial;
       place-self: center;
+      outline: none;
     }
     &__5 {
       max-width: 400px;
     }
   }
+  // FOR TABLET PORTRAIT
+  @include for-tablet-portrait-only {
+    max-height: 500px;
+    max-width: 100%;
+  }
+  // FOR PHONE ONLY
+  @include for-phone-only {
+    max-width: 100%;
+    &__1 {
+      // max-width: 70%;
+      @include centered;
+    }
+    &__5 {
+      // max-width: 70%;
+    }
+  }
 }
 
-/* ================= TEXT ===================== */
+/* ============================================ */
+/* ================== TEXT ==================== */
+/* ============================================ */
 
 .about--text {
   // ALL SIZES
   color: $dark-green;
   font-family: Khand;
-  @include for-tablet-landscape-up {
-    display: inline; // FOR SPAN NOT LINE BREAK
-  }
-  span:not(.not-phone) {
-    font-family: Khand;
-    font-size: 1.8rem;
-    color: white;
-    @include for-phone-only {
-      font-size: 1.5rem;
+
+  &__2 {
+    // FOR DESKTOP DOWN
+    .not-phone {
+      display: inline; // no line break on §
+      // FOR PHONE ONLY
+      @include for-phone-only {
+        display: none;
+      }
     }
-    font-weight: 500;
   }
+
   &__5 {
-    @include for-tablet-portrait-down {
-      width: 50%;
-      margin: auto;
+    // CONTACT SLIDE
+    margin-bottom: 3rem;
+    // FOR PHONE ONLY
+    @include for-phone-only {
+      width: 100%;
+      margin-top: 1.5rem;
     }
-    color: $dark-green;
-    font-family: Khand;
-    margin-top: 3rem;
   }
+
   &__wrapper {
     grid-column: 2/3;
     align-self: center;
     justify-self: start;
-    // PHONE
-    @include for-tablet-portrait-down {
+    // FOR PHONE ONLY
+    @include for-phone-only {
       text-align: center;
     }
   }
@@ -159,53 +185,72 @@
     align-self: end;
     text-align: center;
     &__5 {
-      margin-top: 3rem;
-    }
-    // FOR TABLET LANDSCAPE UP
-    @include for-tablet-landscape-up {
-      &__5 {
-        margin-bottom: 1.5rem;
-        width: 100%;
-        text-align: start;
+      // CONTACT SLIDE
+      margin-bottom: 1.5rem;
+      width: 100%;
+      text-align: start;
+      // FOR PHONE ONLY
+      @include for-phone-only {
+        margin-top: 3rem;
+        text-align: center;
       }
+    }
+  }
+
+  // FOR ALL SIZES
+  span:not(.not-phone) {
+    font-family: Khand;
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 500;
+    // FOR PHONE ONLY
+    @include for-phone-only {
+      font-size: 1.5rem;
     }
   }
 }
 
-/* ================= ICONS ===================== */
+/* ============================================ */
+/* ================= ICONS ==================== */
+/* ============================================ */
 
 .about--icons {
-  width: 18%;
-  padding: 1.5%;
-  @include for-tablet-landscape-up {
+  @include for-desktop-down {
     width: 10%;
     padding: 1%;
   }
-  @include for-tablet-portrait-down {
+  @include for-phone-only {
+    width: 18%;
+    padding: 1.5%;
     &__container {
       margin-top: 10vh;
     }
   }
   &__container__5 {
-    margin: auto;
+    // CONTACT
     width: 50%;
     height: 15%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     position: relative;
+    margin: 0;
     .buttons {
-      place-self: center;
+      justify-self: start;
     }
-    @include for-tablet-landscape-up {
-      margin: 0;
+    // FOR PHONE ONLY
+    @include for-phone-only {
+      width: 100%;
+      margin: auto;
       .buttons {
-        justify-self: start;
+        place-self: center;
       }
     }
   }
 }
 
-/* ================= SLIDING ===================== */
+/* ============================================ */
+/* =============== SLIDING ==================== */
+/* ============================================ */
 
 /* SLIDING */
 .slideanim {

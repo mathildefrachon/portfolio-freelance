@@ -1,7 +1,11 @@
-@import "modules/about";
 @import "modules/partial-variables";
+@import "modules/about";
 @import "modules/sides";
 @import "modules/subpage";
+
+/* ============================================ */
+/* =============== GENERAL ==================== */
+/* ============================================ */
 
 * {
   font-family: Advent Pro, serif;
@@ -25,17 +29,18 @@ a {
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 0.5rem;
-}
-
-a {
+  // FOR DESKTOP DOWN
   @include links($font-xs, white);
+  // FOR MOBILE ONLY
   @include for-phone-only {
     @include links($font-xxs, white);
   }
 }
 
 h1 {
+  // FOR DESKTOP DOWN
   @include title($font-large, white, $line-large);
+  // FOR PHONE ONLY
   @include for-phone-only {
     font-size: 1.8rem;
     line-height: $line-large;
@@ -45,15 +50,19 @@ h1 {
 }
 
 h2 {
+  // FOR DESKTOP DOWN
   @include title($font-normal, white, $line-normal);
 }
 
 h3 {
+  // FOR DESKTOP DOWN
   @include title($font-small, white, $line-small);
 }
 
 p {
+  // FOR DESKTOP DOWN
   @include text($font-normal, white);
+  // FOR PHONE ONLY
   @include for-phone-only {
     @include text($font-small, white);
   }
@@ -64,10 +73,12 @@ ul {
 }
 
 li {
+  // FOR DESKTOP DOWN
   @include liste($font-normal, white);
 }
 
 .buttons {
+  // FOR DESKTOP DOWN
   @include size(35px, 35px);
   padding: 0;
   margin: 0;
@@ -79,34 +90,39 @@ li {
   &--sub {
     position: absolute;
   }
-
   .icons--img {
     @include size(100%, 100%);
   }
 }
 
 .not-phone {
-  display: none;
-  @include for-tablet-landscape-up {
-    display: block;
+  // FOR DESKTOP DOWN
+  display: block; // inline text no break in §
+  // FOR TABLET HD PORTRAIT DOWN
+  @include for-phone-only {
+    display: none;
   }
 }
 
 .not-desk {
+  // FOR DESKTOP DOWN
   display: none;
-  @include for-tablet-landscape-down {
+  // FOR PHONE ONLY
+  @include for-phone-only {
     display: block;
   }
 }
 
-/* SCREENS */
+/* ============================================ */
+/* ================= SCREENS ================== */
+/* ============================================ */
 
 .screen {
+  // FOR DESKTOP DOWN
   @include size(100vw, 100vh);
   position: absolute;
   top: 0;
-  transition: $transition-forward;
-  /* IF BREAKS WITH SLIDE TRY TRANSFORM TRANSLATE X */
+  transition: $transition-forward; // if breaks with slide try transform translate x
   &__welcome {
     @include blackground-image(
       "background_site_light.jpg",
@@ -117,22 +133,25 @@ li {
   &__gallery {
     left: -100vw;
     background-color: $dark-green;
+    // FOR PHONE ONLY
     @include for-phone-only {
       height: auto;
     }
     #gallery {
-      //@include vertical-align(".project--wrapper");
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch; // for ios mobile
+      // FOR DESKTOP DOWN
       @include scroll-div(auto, hidden, auto, 100vh);
-      padding: 15vh 2vw 15vh 2vw;
+      padding: 15vh 2vw;
+      // FOR TABLET HD PORTRAIT DOWN
+      @include for-tablet-HD-portrait-down {
+        padding: 25vh 2vw;
+      }
+      // FOR PHONE ONLY
       @include for-phone-only {
         @include scroll-div(hidden, scroll, 100vw, auto);
         padding: 8vh 2vw 8vh 2vw;
       }
-      // @include for-tablet-portrait-down {
-      //   padding: 25vh 2vw 25vh 2vw;
-      // }
     }
   }
   &__about {
@@ -144,7 +163,10 @@ li {
     -webkit-overflow-scrolling: touch; // for ios mobile
   }
 
-  //SIDES
+  /* ============================================ */
+  /* ================= SIDES ==================== */
+  /* ============================================ */
+
   &__side {
     position: fixed;
     z-index: z(sides);
@@ -165,15 +187,17 @@ li {
       height: 100vh;
       display: grid;
       &__contact {
+        grid-template-rows: 1fr 8fr 4fr;
         padding: 8vh 8vh 8vh 4vh;
-        @include for-tablet-portrait-down {
+        // FOR TABLET HD PORTRAIT DOWN
+        @include for-tablet-HD-portrait-down {
           padding: 4vh;
         }
-        grid-template-rows: 1fr 8fr 4fr;
       }
       &__filter {
-        padding: 8vh 0 8vh 8vh;
         grid-template-rows: 10fr 10fr 1fr 8fr;
+        padding: 8vh 0 8vh 8vh;
+        // FOR TABLET LANDSCAPE DOWN
         @include for-tablet-landscape-down {
           grid-template-rows: 1fr;
           padding: 0;
@@ -183,17 +207,25 @@ li {
   }
 }
 
-/* WELCOMING PAGE */
+/* ============================================ */
+/* ============== WELCOME PAGE ================ */
+/* ============================================ */
 
 #logo-front {
   @include centered;
-  @include size(250px, auto);
-  @include for-tablet-portrait-up {
+  // FOR DESKTOP DOWN
+  @include for-desktop-down {
     @include size(400px, 300px);
+    // FOR PHONE ONLY
+    @include for-phone-only {
+      @include size(250px, auto);
+    }
   }
 }
 
-/* NAV BARS */
+/* ============================================ */
+/* ================== MENU ==================== */
+/* ============================================ */
 
 .c-menu {
   @include size(100vw, 8vh);
@@ -237,27 +269,30 @@ li {
   }
 }
 
-/* PROJECT PAGE */
+/* ============================================ */
+/* ============== GALLERY PAGE ================ */
+/* ============================================ */
 
 .project {
   &--wrapper {
-    @include size(auto, 70vh);
-    @include for-tablet-portrait-down {
-      @include size(85vw, auto);
-    }
-    @include for-phone-only {
-      @include size(85vw, 30vh);
-      display: block;
-    }
     display: inline-block;
     scroll-snap-align: center;
-    margin: 0 2vw;
-    @include for-phone-only {
-      margin: 3vh auto;
-    }
     box-shadow: $box-shadow;
     transition: $transition-fast;
     filter: contrast(0.9);
+    // FOR DESKTOP DOWN
+    @include size(auto, 70vh);
+    margin: 0 2vw;
+    // FOR TABLET HD PORTRAIT DOWN
+    @include for-tablet-HD-portrait-down {
+      @include size(85vw, auto);
+    }
+    // FOR PHONE ONLY
+    @include for-phone-only {
+      @include size(85vw, 30vh);
+      display: block;
+      margin: 3vh auto;
+    }
     &:hover {
       transform: scale(1.03);
       filter: contrast(1);
@@ -270,8 +305,10 @@ li {
   }
   &--img {
     border: $border;
+    // FOR DESKTOP DOWN
     @include size(auto, 100%);
-    @include for-tablet-portrait-down {
+    // FOR TABLET HD PORTRAIT DOWN
+    @include for-tablet-HD-portrait-down {
       @include size(100%, auto);
     }
   }
@@ -282,6 +319,7 @@ li {
     position: absolute;
     bottom: 3rem;
     z-index: 10;
+    // FOR PHONE ONLY
     @include for-phone-only {
       margin-left: 1rem;
       bottom: 1rem;
@@ -310,19 +348,4 @@ li {
   100% {
     transform: rotate(360deg);
   }
-}
-
-// JS CLASSES
-
-.width0 {
-  width: 0;
-  height: 100vh;
-  padding: 0;
-  /* transition: all ease 1s; */
-}
-
-.extend-side {
-  width: 33vw;
-  height: 100vh;
-  /* transition: all ease 1s; */
 }
