@@ -83,11 +83,11 @@ li {
 
 .buttons {
   // FOR DESKTOP DOWN
-  @include size(35px, 35px);
+  @include size(3.5rem, 3.5rem);
   padding: 0;
   margin: 0;
   &--cross {
-    @include size(20px, 20px);
+    @include size(2rem, 2rem);
     top: 2vw;
   }
   &--cross,
@@ -108,11 +108,20 @@ li {
   }
 }
 
+// .not-desk {
+//   // FOR DESKTOP DOWN
+//   display: none;
+//   // FOR PHONE ONLY
+//   @include for-phone-only {
+//     display: block;
+//   }
+// }
+
 .not-desk {
   // FOR DESKTOP DOWN
   display: none;
   // FOR PHONE ONLY
-  @include for-phone-only {
+  @include for-tablet-HD-portrait-down {
     display: block;
   }
 }
@@ -202,7 +211,7 @@ li {
         grid-template-rows: 10fr 10fr 1fr 8fr;
         padding: 8vh 0 8vh 8vh;
         // FOR TABLET LANDSCAPE DOWN
-        @include for-tablet-landscape-down {
+        @include for-tablet-HD-portrait-down {
           grid-template-rows: 1fr;
           padding: 0;
         }

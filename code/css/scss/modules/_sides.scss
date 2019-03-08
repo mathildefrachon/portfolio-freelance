@@ -72,7 +72,7 @@ $color-link: (
     }
   }
   // FOR TABLET HD PORTRAIT DOWN
-  @include for-tablet-HD-portrait-down {
+  @include for-tablet-portrait-only {
     padding: 0;
     .wrapper-cat {
       &__link {
@@ -81,9 +81,13 @@ $color-link: (
       &__keywords__not-desk {
         display: block;
         position: absolute;
-        top: 70%;
+        top: 63%;
+        font-size: 1.5rem;
+        letter-spacing: 0.8rem;
       }
     }
+  }
+  @include for-tablet-HD-portrait-down {
     .not-phone {
       display: none;
     }

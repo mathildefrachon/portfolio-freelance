@@ -1,18 +1,18 @@
 @import "partial-variables";
 
+/* ============================================ */
+/* =============== PROJECT ==================== */
+/* ============================================ */
+
 .project {
   @include size(100vw, 100vh);
   background-color: $dark-green;
+  text-align: center;
   &--wrapper__sub {
     position: relative; // important for side infos
     float: right;
     height: 100vh;
     transition: $transition-fast;
-    // @include for-tablet-landscape-down {
-    //   width: 85vw;
-    //   height: 40vh;
-    //   @include centered;
-    // }
   }
   &--infos__sub {
     background-color: $black-green;
@@ -25,52 +25,53 @@
     transition: $transition-fast;
   }
   &--img__sub {
+    // ALL SIZES
+    @include centered;
+    outline: solid white 4px;
+    padding: 1%; /* Make the frame */
+    transition: all ease 0.3s;
+    // FOR DESKTOP DOWN
     width: auto;
     height: 70vh;
-    @include centered;
-    @include for-tablet-portrait-down {
+    // FOR TABLET HD PORTRAIT DOWN
+    @include for-tablet-HD-portrait-down {
       width: 85vw;
       height: auto;
     }
-    outline: solid white 4px;
-    padding: 1%; /* MAKE THE FRAME */
-    transition: all ease 0.3s;
     &:hover {
       transform: scale(1.03);
       filter: contrast(1);
     }
   }
   &--img--dots {
-    width: fit-content;
-    height: 10px;
-    position: absolute;
-    top: 80vh;
-    @include for-tablet-landscape-down {
-      top: 50vh;
+    width: 100vw;
+    height: 10vh;
+    // FOR ALL SIZES
+    margin-top: 90vh;
+    // FOR TABLET HD PORTRAIT
+    @include for-tablet-HD-portrait-down {
+      margin-top: 80vh;
     }
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-  }
-}
-
-// SUBPAGE MENU
-
-.project {
-  @include for-tablet-portrait-down {
-    .c-menu--bottom__sub {
-      background-color: $black-green;
-      height: 10vh;
-      padding: 4% 5%;
+    // FOR PHONE ONLY
+    @include for-phone-only {
+      margin-top: 75vh;
     }
   }
 }
+
+/* ============================================ */
+/* ================== MENU ==================== */
+/* ============================================ */
 
 .buttons {
   &--cross__sub {
+    // DESKTOP
     @include size(30px, 30px);
-    top: 2vw;
+    // TABLET DOWN
+    @include for-tablet-HD-portrait-down {
+      @include size(50px, 50px);
+    }
+    //top: 2vw;
     left: 3vw;
   }
   &--sub {
@@ -84,7 +85,7 @@
     &__previous {
       right: 10vw;
     }
-    @include for-tablet-portrait-down {
+    @include for-tablet-HD-portrait-down {
       &__plus {
         left: calc(95vw - 35px);
       }
@@ -98,7 +99,21 @@
   }
 }
 
-// DOTS
+// MENU TABLET HD PORTRAIT DOWN
+.project {
+  @include for-tablet-HD-portrait-down {
+    .c-menu--bottom__sub {
+      background-color: $black-green;
+      height: 10vh;
+      padding: 4% 5%;
+    }
+  }
+}
+
+/* ============================================ */
+/* =============== DOTS STYLE ================= */
+/* ============================================ */
+
 .point {
   display: inline-block;
   width: 10px;
@@ -110,12 +125,15 @@
   opacity: 0.6;
 }
 
-/*///// ELEMENTS INFOS CONTAINER////// */
+/* ============================================ */
+/* ================= INFOS ==================== */
+/* ============================================ */
 
 .infos__sub {
+  text-align: start;
   width: 100%;
   height: 100%;
-  padding: 30% 12% 10% 15%;
+  padding: 15vh 12% 10% 15%;
   &--subtitle {
     letter-spacing: 0.4rem;
     margin-top: 1%;

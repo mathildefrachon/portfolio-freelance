@@ -103,7 +103,7 @@
         outline: none; }
       .about--img__5 {
         max-width: 400px; } }
-  @media (max-width: 899px) and (min-width: 600px) and (orientation: portrait) {
+  @media (max-width: 1199px) and (min-width: 600px) and (orientation: portrait) {
     .about--img {
       max-height: 500px;
       max-width: 100%; } }
@@ -299,7 +299,7 @@
         letter-spacing: 0.5rem;
         height: fit-content; }
 
-@media (max-width: 1199px) and (orientation: portrait) {
+@media (max-width: 1199px) and (min-width: 600px) and (orientation: portrait) {
   .screen__side--wrapper__filter {
     padding: 0; }
     .screen__side--wrapper__filter .wrapper-cat__link {
@@ -307,9 +307,13 @@
     .screen__side--wrapper__filter .wrapper-cat__keywords__not-desk {
       display: block;
       position: absolute;
-      top: 70%; }
-    .screen__side--wrapper__filter .not-phone {
-      display: none; } }
+      top: 63%;
+      font-size: 1.5rem;
+      letter-spacing: 0.8rem; } }
+
+@media (max-width: 1199px) and (orientation: portrait) {
+  .screen__side--wrapper__filter .not-phone {
+    display: none; } }
 
 .buttons--cross__filter {
   left: 2vw; }
@@ -407,10 +411,14 @@
 /* ------------- MIXINS STYLE----------------- */
 /* -------------- MIXINS FUNCTIONS ------------------- */
 /* -------------- MIXINS RESPONSIVENESS ------------------- */
+/* ============================================ */
+/* =============== PROJECT ==================== */
+/* ============================================ */
 .project {
   width: 100vw;
   height: 100vh;
-  background-color: #0b443f; }
+  background-color: #0b443f;
+  text-align: center; }
   .project--wrapper__sub {
     position: relative;
     float: right;
@@ -426,8 +434,6 @@
     height: 100vh;
     transition: all ease 0.3s; }
   .project--img__sub {
-    width: auto;
-    height: 70vh;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -436,9 +442,11 @@
     margin: auto;
     outline: solid white 4px;
     padding: 1%;
-    /* MAKE THE FRAME */
-    transition: all ease 0.3s; }
-    @media (max-width: 899px) and (orientation: portrait) {
+    /* Make the frame */
+    transition: all ease 0.3s;
+    width: auto;
+    height: 70vh; }
+    @media (max-width: 1199px) and (orientation: portrait) {
       .project--img__sub {
         width: 85vw;
         height: auto; } }
@@ -446,29 +454,27 @@
       transform: scale(1.03);
       filter: contrast(1); }
   .project--img--dots {
-    width: fit-content;
-    height: 10px;
-    position: absolute;
-    top: 80vh;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto; }
-    @media (max-width: 1199px) {
-      .project--img--dots {
-        top: 50vh; } }
-
-@media (max-width: 899px) and (orientation: portrait) {
-  .project .c-menu--bottom__sub {
-    background-color: #082f2b;
+    width: 100vw;
     height: 10vh;
-    padding: 4% 5%; } }
+    margin-top: 90vh; }
+    @media (max-width: 1199px) and (orientation: portrait) {
+      .project--img--dots {
+        margin-top: 80vh; } }
+    @media (max-width: 599px) {
+      .project--img--dots {
+        margin-top: 75vh; } }
 
+/* ============================================ */
+/* ================== MENU ==================== */
+/* ============================================ */
 .buttons--cross__sub {
   width: 30px;
   height: 30px;
-  top: 2vw;
   left: 3vw; }
+  @media (max-width: 1199px) and (orientation: portrait) {
+    .buttons--cross__sub {
+      width: 50px;
+      height: 50px; } }
 
 .buttons--sub {
   bottom: 2vw; }
@@ -478,7 +484,7 @@
     right: 3vw; }
   .buttons--sub__previous {
     right: 10vw; }
-  @media (max-width: 899px) and (orientation: portrait) {
+  @media (max-width: 1199px) and (orientation: portrait) {
     .buttons--sub__plus {
       left: calc(95vw - 35px); }
     .buttons--sub__next {
@@ -486,6 +492,15 @@
     .buttons--sub__previous {
       left: calc(35vw - 15px); } }
 
+@media (max-width: 1199px) and (orientation: portrait) {
+  .project .c-menu--bottom__sub {
+    background-color: #082f2b;
+    height: 10vh;
+    padding: 4% 5%; } }
+
+/* ============================================ */
+/* =============== DOTS STYLE ================= */
+/* ============================================ */
 .point {
   display: inline-block;
   width: 10px;
@@ -496,11 +511,14 @@
   margin: 0 5px;
   opacity: 0.6; }
 
-/*///// ELEMENTS INFOS CONTAINER////// */
+/* ============================================ */
+/* ================= INFOS ==================== */
+/* ============================================ */
 .infos__sub {
+  text-align: start;
   width: 100%;
   height: 100%;
-  padding: 30% 12% 10% 15%; }
+  padding: 15vh 12% 10% 15%; }
   .infos__sub--subtitle {
     letter-spacing: 0.4rem;
     margin-top: 1%;
@@ -600,13 +618,13 @@ li {
   font-weight: 400; }
 
 .buttons {
-  width: 35px;
-  height: 35px;
+  width: 3.5rem;
+  height: 3.5rem;
   padding: 0;
   margin: 0; }
   .buttons--cross {
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
     top: 2vw; }
   .buttons--cross, .buttons--sub {
     position: absolute; }
@@ -622,7 +640,7 @@ li {
 
 .not-desk {
   display: none; }
-  @media (max-width: 599px) {
+  @media (max-width: 1199px) and (orientation: portrait) {
     .not-desk {
       display: block; } }
 
@@ -704,7 +722,7 @@ li {
       .screen__side--wrapper__filter {
         grid-template-rows: 10fr 10fr 1fr 8fr;
         padding: 8vh 0 8vh 8vh; }
-        @media (max-width: 1199px) {
+        @media (max-width: 1199px) and (orientation: portrait) {
           .screen__side--wrapper__filter {
             grid-template-rows: 1fr;
             padding: 0; } }
