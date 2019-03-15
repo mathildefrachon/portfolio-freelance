@@ -12,7 +12,7 @@
     position: relative; // important for side infos
     float: right;
     height: 100vh;
-    transition: $transition-fast;
+    transition: $transition-normal;
   }
   &--infos__sub {
     background-color: $black-green;
@@ -22,7 +22,7 @@
     z-index: z(sides);
     float: left;
     height: 100vh;
-    transition: $transition-fast;
+    transition: $transition-normal;
   }
   &--img__sub {
     // ALL SIZES
@@ -33,6 +33,10 @@
     // FOR DESKTOP DOWN
     width: auto;
     height: 70vh;
+    // FOR SMALL DESK DOWN
+    @include for-small-desktop-down {
+      height: 60vh;
+    }
     // FOR TABLET HD PORTRAIT DOWN
     @include for-tablet-HD-portrait-down {
       width: 85vw;
@@ -44,7 +48,7 @@
     }
   }
   &--img--dots {
-    width: 100vw;
+    // width: 100vw;
     height: 10vh;
     // FOR ALL SIZES
     margin-top: 90vh;

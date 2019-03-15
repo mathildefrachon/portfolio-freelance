@@ -13,6 +13,8 @@
   margin: 0;
 }
 
+// contact-fpr
+
 :root {
   font-size: 62.5%;
 }
@@ -146,6 +148,7 @@ li {
   &__gallery {
     left: -100vw;
     background-color: $dark-green;
+    min-height: 100vh;
     // FOR PHONE ONLY
     @include for-phone-only {
       height: auto;
@@ -171,7 +174,7 @@ li {
     height: auto;
     left: 100vw;
     background-color: $mint-green;
-    scroll-behavior: smooth;
+
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch; // for ios mobile
   }
@@ -186,7 +189,7 @@ li {
     top: 0;
     overflow-x: hidden;
     box-shadow: $box-shadow;
-    transition: $transition-normal;
+    transition: $transition-slow;
     &__filter {
       background-color: #689793;
       left: 0;
@@ -201,10 +204,10 @@ li {
       display: grid;
       &__contact {
         grid-template-rows: 1fr 8fr 4fr;
-        padding: 8vh 8vh 8vh 4vh;
+        padding: 16vh 8vh 8vh 4vh;
         // FOR TABLET HD PORTRAIT DOWN
         @include for-tablet-HD-portrait-down {
-          padding: 4vh;
+          padding: 12vh 4vh 4vh;
         }
       }
       &__filter {

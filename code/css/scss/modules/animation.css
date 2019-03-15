@@ -59,6 +59,11 @@
   opacity: 1;
 }
 
+.cat-hovered {
+  box-shadow: 2px 3px 23px -4px rgb(8, 47, 43);
+  z-index: 20;
+}
+
 @media only screen and (min-width: 1200px) {
   .extend-side {
     width: 33vw;

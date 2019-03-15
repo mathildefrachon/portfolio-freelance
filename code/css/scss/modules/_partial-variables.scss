@@ -54,6 +54,7 @@ $transition-normal: all ease 1s;
 $transition-forward: all ease 1s forwards;
 $transition-fast: all ease 0.3s;
 $transition-slow: all ease 2s;
+$transition-super-slow: all ease 3s;
 
 //////////////////////////////////////////////
 
@@ -208,6 +209,12 @@ $z-layers: (
 
 @mixin for-desktop-only {
   @media (max-width: 1799px) and (min-width: 1200px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin for-small-desktop-down {
+  @media (max-width: 1499px) {
     @content;
   }
 }
