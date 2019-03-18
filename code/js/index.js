@@ -49,6 +49,7 @@ const objProject = {
     url: ""
   },
   otherimages: [],
+  mobileimages: [],
   id: null,
   wpid: null
 };
@@ -86,17 +87,28 @@ function buildList(data) {
             .source_url
       }
     ];
-    project.category = dataProject.categories;
     for (var key in dataProject.acf) {
       if (key.startsWith("other_images") && dataProject.acf[key]) {
         project.otherimages.push(dataProject.acf[key]);
       }
     }
+    project.mobileimages = [
+      {
+        url:
+          dataProject._embedded["wp:featuredmedia"][0].media_details.sizes.full
+            .source_url
+      }
+    ];
+    for (var key in dataProject.acf) {
+      if (key.startsWith("mobile-img") && dataProject.acf[key]) {
+        project.mobileimages.push(dataProject.acf[key]);
+      }
+    }
+    project.category = dataProject.categories;
     projectsArray.push(project);
     project.id = projectsArray.indexOf(project);
   });
   currentArray = projectsArray;
-
   displayArray(currentArray);
 }
 
@@ -126,6 +138,7 @@ function displayList(listOfProjects) {
 //CLONE BY PROJECT AND APPEND
 function cloneProject(listOfProjects) {
   listOfProjects.forEach(oneProject => {
+    console.log(oneProject.mobileimages);
     let template = document.querySelector(".project--template").content;
     let clone = template.cloneNode(true);
     // FILL IN THE CLONE
@@ -157,6 +170,7 @@ function imgLoaded(clone, oneProject) {
     projectImg.classList.remove("none");
     checkImgOrientation(downloadingImage, projectImg, projectWrap);
   };
+
   downloadingImage.src = oneProject.image;
   let source = downloadingImage.src;
   displayImg(oneProject, projectImg, projectWrap, source, projectTitle);
@@ -264,7 +278,12 @@ function displayProject(currentArray) {
   displayInfos(myProject);
   // DOTS IMG SLIDE
   displayDots(myProject);
-  imgVert.setAttribute("src", myProject.image);
+  if (window.innerWidth > 599) {
+    imgVert.setAttribute("src", myProject.image);
+  } else {
+    console.log(myProject.mobileimages[1]);
+    imgVert.setAttribute("src", myProject.mobileimages[1].url);
+  }
   imgVert.classList.remove("none");
 }
 
@@ -282,7 +301,11 @@ function displayInfos(myProject) {
 }
 
 function displayDots(myProject) {
-  imgArray = myProject.otherimages;
+  if (window.innerWidth > 599) {
+    imgArray = myProject.otherimages;
+  } else {
+    imgArray = myProject.mobileimages.slice(1); // take out the main img (from gallery) to the subpage array
+  }
   const dot_nav = document.querySelector(".project--img--dots");
   console.log("create dots");
 
