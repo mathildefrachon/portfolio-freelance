@@ -65,3 +65,40 @@ if (window.innerWidth < 1000) {
     slideD.classList.add("none");
   });
 }
+
+/* HORIZONTAL SCROLL GALLERY */
+
+let containerGal = document.querySelector(".gallery");
+var xInterval = 1;
+
+var doScrollLeft = function() {
+  console.log("little by little");
+  containerGal.scrollBy(-2, 0);
+  // containerGal.scroll(xInterval, 0);
+  // xInterval = xInterval - 2;
+  // console.log(xInterval);
+};
+
+var doScrollRight = function() {
+  // containerGal.scroll(xInterval, 0);
+  containerGal.scrollBy(2, 0);
+  // xInterval = xInterval + 2;
+};
+
+var myInterval;
+
+var startScrollLeft = function() {
+  console.log("Scroooooll");
+  myInterval = setInterval(doScrollLeft, 1);
+};
+
+var startScrollRight = function() {
+  console.log("Scroooooll");
+  myInterval = setInterval(doScrollRight, 1);
+};
+
+var stopScroll = function() {
+  console.log("DONT Scroooooll");
+  clearInterval(myInterval);
+  //containerGal.style.scrollBehavior = "inherit";
+};

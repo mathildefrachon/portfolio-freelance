@@ -154,11 +154,10 @@ li {
       height: auto;
     }
     #gallery {
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch; // for ios mobile
-      // FOR DESKTOP DOWN
-      @include scroll-div(auto, hidden, auto, 100vh);
-      padding: 15vh 2vw;
+      //scroll-snap-type: x mandatory;
+      //-webkit-overflow-scrolling: touch; // for ios mobile
+      //FOR DESKTOP DOWN
+      //@include scroll-div(auto, hidden, auto, 100vh);
       // FOR TABLET HD PORTRAIT DOWN
       @include for-tablet-HD-portrait-down {
         padding: 25vh 2vw;
@@ -289,14 +288,29 @@ li {
 /* ============== GALLERY PAGE ================ */
 /* ============================================ */
 
+#gallery {
+  width: auto;
+  height: 80vh;
+  display: grid;
+  //grid-template-columns: repeat(15, 1fr);
+  overflow: scroll;
+  margin: 10vh 0;
+}
+
+.project--wrapper {
+  height: 70vh;
+  place-self: center;
+  margin: 0 2rem;
+}
+
 .project {
   &--wrapper {
-    display: inline-block;
-    scroll-snap-align: center;
+    //display: inline-block;
+    //scroll-snap-align: center;
     box-shadow: $box-shadow;
-    transition: $transition-fast;
+    //transition: $transition-fast;
     filter: contrast(0.9);
-    // FOR DESKTOP DOWN
+    //FOR DESKTOP DOWN
     @include size(auto, 70vh);
     margin: 0 2vw;
     // FOR TABLET HD PORTRAIT DOWN
@@ -309,16 +323,16 @@ li {
       display: block;
       margin: 3vh auto;
     }
-    &:hover {
-      transform: scale(1.03);
-      filter: contrast(1);
-    }
+    // &:hover {
+    //   transform: scale(1.03);
+    //   filter: contrast(1);
+    // }
   }
-  &--link {
-    @include size(auto, 100%);
-    position: relative;
-    display: block;
-  }
+  // &--link {
+  //   @include size(auto, 100%);
+  //   position: relative;
+  //   display: block;
+  // }
   &--img {
     border: $border;
     // FOR DESKTOP DOWN
@@ -345,6 +359,24 @@ li {
   }
 }
 
+.gallery--arrow-button {
+  @include size(50px, 50px);
+  position: absolute;
+  top: calc(50vh - 25px);
+  z-index: 200;
+  img {
+    @include size(100%, auto);
+  }
+  &__left {
+    img {
+      transform: scale(-1);
+    }
+  }
+  &__right {
+    right: 5vw;
+  }
+}
+
 /* LOADER */
 
 .loader {
@@ -363,5 +395,41 @@ li {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* ARROWS */
+.arrow {
+  position: fixed;
+  @include size(50px, 50px);
+  opacity: 0;
+  // arrow about
+  &--bottom {
+    top: 85vh;
+    left: calc(50vw - 25px);
+    transform: rotate(90deg);
+  }
+
+  animation: blinking 3s 3s ease-in-out forwards;
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

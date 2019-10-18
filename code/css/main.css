@@ -1,22 +1,22 @@
+/* COLORS */
+/*darker*/
+/* STYLE ELEMENTS */
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
 /* FONT SIZE FOR MOBILE */
 /* LINE HEIGHT */
-/* COLORS */
-/*darker*/
-/* STYLE ELEMENTS */
 /* EFFECT TRANSITIONS */
 /* ------------- MIXINS STYLE----------------- */
 /* -------------- MIXINS FUNCTIONS ------------------- */
 /* -------------- MIXINS RESPONSIVENESS ------------------- */
 /* ABOUT SCREEN */
+/* COLORS */
+/*darker*/
+/* STYLE ELEMENTS */
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
 /* FONT SIZE FOR MOBILE */
 /* LINE HEIGHT */
-/* COLORS */
-/*darker*/
-/* STYLE ELEMENTS */
 /* EFFECT TRANSITIONS */
 /* ------------- MIXINS STYLE----------------- */
 /* -------------- MIXINS FUNCTIONS ------------------- */
@@ -223,13 +223,13 @@
     opacity: 1;
     transform: translateY(0); } }
 
+/* COLORS */
+/*darker*/
+/* STYLE ELEMENTS */
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
 /* FONT SIZE FOR MOBILE */
 /* LINE HEIGHT */
-/* COLORS */
-/*darker*/
-/* STYLE ELEMENTS */
 /* EFFECT TRANSITIONS */
 /* ------------- MIXINS STYLE----------------- */
 /* -------------- MIXINS FUNCTIONS ------------------- */
@@ -325,7 +325,8 @@
   place-self: center; }
 
 .screen__side__contact .contact--text {
-  text-align: center; }
+  text-align: center;
+  place-self: center; }
 
 .screen__side__contact .contact--icons__container {
   grid-column: 1/-1;
@@ -338,61 +339,35 @@
     justify-self: end; }
 
 .screen__side__contact .contact--link__mail {
-  color: white;
-  font-size: 1.2rem;
-  font-family: Khand;
-  letter-spacing: 0.3rem;
   font-weight: 400;
-  text-align: center; }
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  font-family: Khand;
+  letter-spacing: 0.3rem; }
+  @media (max-width: 599px) {
+    .screen__side__contact .contact--link__mail {
+      color: white;
+      font-size: 1.2rem;
+      font-family: Khand;
+      letter-spacing: 0.3rem; } }
 
 .screen__side__contact .signature {
-  place-self: center; }
-
-.form {
+  place-self: center;
   width: 100%;
   height: 100%;
-  padding-top: 15%;
-  place-self: center;
-  display: grid;
-  grid-template-rows: 1fr 1fr 2.5fr 0.5fr;
-  grid-gap: 4%; }
-  .form--input {
-    color: #6a9793;
-    font-size: 1.6rem;
-    font-family: Khand;
-    letter-spacing: 0.3rem;
+  text-align: center; }
+  .screen__side__contact .signature img {
     width: 100%;
-    height: 50px;
-    background-color: #d7f0ec;
-    align-self: start;
-    padding: 3%;
-    border: none;
-    grid-column: 1/3;
-    box-shadow: 2px 3px 23px -4px #082f2b; }
-    .form--input__name {
-      align-self: end; }
-    .form--input__msg {
-      height: 100%; }
-    .form--input :focus {
-      outline: none; }
-  .form--submit {
-    grid-column: 2/3;
-    grid-row: 4/5;
-    display: grid;
-    grid-gap: 4%;
-    grid-template-columns: 1fr 1fr; }
-    .form--submit__send {
-      grid-column: 1/2; }
-    .form--submit__reset {
-      grid-column: 2/3; }
+    max-width: 300px; }
 
+/* COLORS */
+/*darker*/
+/* STYLE ELEMENTS */
 /* -------------GENERAL STYLE SHEET----------------- */
 /* FONT SIZE */
 /* FONT SIZE FOR MOBILE */
 /* LINE HEIGHT */
-/* COLORS */
-/*darker*/
-/* STYLE ELEMENTS */
 /* EFFECT TRANSITIONS */
 /* ------------- MIXINS STYLE----------------- */
 /* -------------- MIXINS FUNCTIONS ------------------- */
@@ -410,6 +385,9 @@
     float: right;
     height: 100vh;
     transition: all ease 1s; }
+    @media (max-width: 599px) {
+      .project--wrapper__sub {
+        height: 90vh; } }
   .project--infos__sub {
     background-color: #082f2b;
     opacity: 0.9;
@@ -450,7 +428,7 @@
         margin-top: 80vh; } }
     @media (max-width: 599px) {
       .project--img--dots {
-        margin-top: 75vh; } }
+        margin-top: 83vh; } }
 
 /* ============================================ */
 /* ================== MENU ==================== */
@@ -656,28 +634,18 @@ li {
     @media (max-width: 599px) {
       .screen__gallery {
         height: auto; } }
-    .screen__gallery #gallery {
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      width: auto;
-      height: 100vh;
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      scroll-behavior: smooth;
-      padding: 15vh 2vw; }
-      @media (max-width: 1199px) and (orientation: portrait) {
-        .screen__gallery #gallery {
-          padding: 25vh 2vw; } }
-      @media (max-width: 599px) {
-        .screen__gallery #gallery {
-          width: 100vw;
-          height: auto;
-          overflow-x: hidden;
-          overflow-y: scroll;
-          white-space: nowrap;
-          scroll-behavior: smooth;
-          padding: 8vh 2vw 8vh 2vw; } }
+    @media (max-width: 1199px) and (orientation: portrait) {
+      .screen__gallery #gallery {
+        padding: 25vh 2vw; } }
+    @media (max-width: 599px) {
+      .screen__gallery #gallery {
+        width: 100vw;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        padding: 8vh 2vw 8vh 2vw; } }
   .screen__about {
     height: auto;
     left: 100vw;
@@ -779,11 +747,20 @@ li {
 /* ============================================ */
 /* ============== GALLERY PAGE ================ */
 /* ============================================ */
+#gallery {
+  width: auto;
+  height: 80vh;
+  display: grid;
+  overflow: scroll;
+  margin: 10vh 0; }
+
 .project--wrapper {
-  display: inline-block;
-  scroll-snap-align: center;
+  height: 70vh;
+  place-self: center;
+  margin: 0 2rem; }
+
+.project--wrapper {
   box-shadow: 2px 3px 23px -4px #082f2b;
-  transition: all ease 0.3s;
   filter: contrast(0.9);
   width: auto;
   height: 70vh;
@@ -798,15 +775,6 @@ li {
       height: 30vh;
       display: block;
       margin: 3vh auto; } }
-  .project--wrapper:hover {
-    transform: scale(1.03);
-    filter: contrast(1); }
-
-.project--link {
-  width: auto;
-  height: 100%;
-  position: relative;
-  display: block; }
 
 .project--img {
   border: white 3px solid;
@@ -832,6 +800,20 @@ li {
       font-size: 1.2rem;
       letter-spacing: 0.45rem; } }
 
+.gallery--arrow-button {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: calc(50vh - 25px);
+  z-index: 200; }
+  .gallery--arrow-button img {
+    width: 100%;
+    height: auto; }
+  .gallery--arrow-button__left img {
+    transform: scale(-1); }
+  .gallery--arrow-button__right {
+    right: 5vw; }
+
 /* LOADER */
 .loader {
   position: absolute;
@@ -853,3 +835,29 @@ li {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+
+/* ARROWS */
+.arrow {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  animation: blinking 3s 3s ease-in-out forwards; }
+  .arrow--bottom {
+    top: 85vh;
+    left: calc(50vw - 25px);
+    transform: rotate(90deg); }
+
+@keyframes blinking {
+  0% {
+    opacity: 0; }
+  20% {
+    opacity: 1; }
+  40% {
+    opacity: 0; }
+  60% {
+    opacity: 0; }
+  80% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }

@@ -12,6 +12,9 @@
     position: relative; // important for side infos
     float: right;
     height: 100vh;
+    @include for-phone-only {
+      height: 90vh;
+    }
     transition: $transition-normal;
   }
   &--infos__sub {
@@ -58,7 +61,7 @@
     }
     // FOR PHONE ONLY
     @include for-phone-only {
-      margin-top: 75vh;
+      margin-top: 83vh;
     }
   }
 }

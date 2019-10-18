@@ -128,6 +128,10 @@ function displayArray(currentArray) {
 
 // DISPLAY ARRAY IN THE GALLERY
 function displayList(listOfProjects) {
+  let gallery = document.querySelector(".gallery");
+  let projectNumber = listOfProjects.length;
+  console.log(projectNumber);
+  gallery.style.gridTemplateColumns = "repeat(" + projectNumber + ",1fr)";
   currentArray = listOfProjects;
   //CLEAR THE TABLE
   clearList();
