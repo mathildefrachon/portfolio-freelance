@@ -227,6 +227,12 @@ $z-layers: (
   }
 }
 
+@mixin for-tablet-HD-landscape-down {
+  @media (max-width: 1399px) and (orientation: landscape) {
+    @content;
+  }
+}
+
 @mixin for-tablet-landscape-only {
   @media (max-width: 1199px) and (min-width: 900px) and (orientation: landscape) {
     @content;
@@ -253,6 +259,18 @@ $z-layers: (
 
 @mixin for-tablet-portrait-only {
   @media (max-width: 1199px) and (min-width: 600px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin for-landscape-phone-only {
+  @media (max-width: 900px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin for-portrait-phone-only {
+  @media (max-width: 599px) and (orientation: portrait) {
     @content;
   }
 }

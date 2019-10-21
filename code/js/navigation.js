@@ -74,15 +74,10 @@ var xInterval = 1;
 var doScrollLeft = function() {
   console.log("little by little");
   containerGal.scrollBy(-2, 0);
-  // containerGal.scroll(xInterval, 0);
-  // xInterval = xInterval - 2;
-  // console.log(xInterval);
 };
 
 var doScrollRight = function() {
-  // containerGal.scroll(xInterval, 0);
   containerGal.scrollBy(2, 0);
-  // xInterval = xInterval + 2;
 };
 
 var myInterval;
@@ -100,5 +95,23 @@ var startScrollRight = function() {
 var stopScroll = function() {
   console.log("DONT Scroooooll");
   clearInterval(myInterval);
-  //containerGal.style.scrollBehavior = "inherit";
 };
+
+// //////// ARROW ABOUT ////////// //
+
+let nbWrapper = 0;
+
+document
+  .querySelector(".arrow-about--link")
+  .addEventListener("click", function() {
+    if (0 < nbWrapper < 6) {
+      this.href = "#about--wrapper__" + nbWrapper;
+      nbWrapper = nbWrapper + 1;
+      console.log(nbWrapper);
+    } else if (nbWrapper >= 6) {
+      document.querySelector(".arrow--bottom").style.transform =
+        "rotate(-90deg)";
+      this.href = "#about--wrapper__" + 0;
+      let nbWrapper = 0;
+    }
+  });

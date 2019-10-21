@@ -130,8 +130,23 @@ function displayArray(currentArray) {
 function displayList(listOfProjects) {
   let gallery = document.querySelector(".gallery");
   let projectNumber = listOfProjects.length;
-  console.log(projectNumber);
-  gallery.style.gridTemplateColumns = "repeat(" + projectNumber + ",1fr)";
+
+  if (
+    window.innerWidth > 900 &&
+    window.screen.orientation.type === "landscape-primary"
+  ) {
+    console.log("TABLET UP LANDSCAPE");
+    gallery.style.gridTemplateColumns = "repeat(" + projectNumber + ",1fr)";
+  }
+  //for mobile
+  else if (
+    window.innerWidth < 900 &&
+    window.screen.orientation.type === "portrait-primary"
+  ) {
+    console.log("TABLET DOWN PORTRAIT");
+    gallery.style.gridTemplateRows = "repeat(" + projectNumber + ",1fr)";
+  }
+
   currentArray = listOfProjects;
   //CLEAR THE TABLE
   clearList();

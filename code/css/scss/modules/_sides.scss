@@ -87,9 +87,23 @@ $color-link: (
       }
     }
   }
-  @include for-tablet-HD-portrait-down {
+
+  @include for-tablet-landscape-down {
     .not-phone {
       display: none;
+    }
+    padding: 0;
+    .wrapper-cat {
+      &__link {
+        padding-left: 7rem;
+      }
+      &__keywords__not-desk {
+        display: block;
+        position: absolute;
+        top: 63%;
+        font-size: 1.5rem;
+        letter-spacing: 0.8rem;
+      }
     }
   }
 }

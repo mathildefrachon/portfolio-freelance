@@ -154,18 +154,16 @@ li {
       height: auto;
     }
     #gallery {
-      //scroll-snap-type: x mandatory;
-      //-webkit-overflow-scrolling: touch; // for ios mobile
-      //FOR DESKTOP DOWN
-      //@include scroll-div(auto, hidden, auto, 100vh);
-      // FOR TABLET HD PORTRAIT DOWN
-      @include for-tablet-HD-portrait-down {
-        padding: 25vh 2vw;
-      }
+      width: auto;
+      height: 80vh;
+      display: grid;
+      grid-gap: 2vw;
+      overflow: scroll;
+      margin: 10vh 0;
+
       // FOR PHONE ONLY
-      @include for-phone-only {
+      @include for-portrait-phone-only {
         @include scroll-div(hidden, scroll, 100vw, auto);
-        padding: 8vh 2vw 8vh 2vw;
       }
     }
   }
@@ -173,7 +171,6 @@ li {
     height: auto;
     left: 100vw;
     background-color: $mint-green;
-
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch; // for ios mobile
   }
@@ -212,8 +209,9 @@ li {
       &__filter {
         grid-template-rows: 10fr 10fr 1fr 8fr;
         padding: 8vh 0 8vh 8vh;
-        // FOR TABLET LANDSCAPE DOWN
-        @include for-tablet-HD-portrait-down {
+        // FOR TABLET DOWN
+
+        @include for-tablet-landscape-down {
           grid-template-rows: 1fr;
           padding: 0;
         }
@@ -288,27 +286,12 @@ li {
 /* ============== GALLERY PAGE ================ */
 /* ============================================ */
 
-#gallery {
-  width: auto;
-  height: 80vh;
-  display: grid;
-  //grid-template-columns: repeat(15, 1fr);
-  overflow: scroll;
-  margin: 10vh 0;
-}
-
-.project--wrapper {
-  height: 70vh;
-  place-self: center;
-  margin: 0 2rem;
-}
-
 .project {
   &--wrapper {
-    //display: inline-block;
-    //scroll-snap-align: center;
+    place-self: center;
+    margin: 0 2rem;
     box-shadow: $box-shadow;
-    //transition: $transition-fast;
+    transition: $transition-fast;
     filter: contrast(0.9);
     //FOR DESKTOP DOWN
     @include size(auto, 70vh);
@@ -318,21 +301,21 @@ li {
       @include size(85vw, auto);
     }
     // FOR PHONE ONLY
-    @include for-phone-only {
+    @include for-portrait-phone-only {
       @include size(85vw, 30vh);
       display: block;
       margin: 3vh auto;
     }
-    // &:hover {
-    //   transform: scale(1.03);
-    //   filter: contrast(1);
-    // }
+    &:hover {
+      transform: scale(1.03);
+      filter: contrast(1);
+    }
   }
-  // &--link {
-  //   @include size(auto, 100%);
-  //   position: relative;
-  //   display: block;
-  // }
+  &--link {
+    @include size(auto, 100%);
+    position: relative;
+    display: block;
+  }
   &--img {
     border: $border;
     // FOR DESKTOP DOWN
@@ -363,17 +346,23 @@ li {
   @include size(50px, 50px);
   position: absolute;
   top: calc(50vh - 25px);
-  z-index: 200;
+  z-index: 10;
+  background-color: $dark-green;
   img {
     @include size(100%, auto);
   }
   &__left {
+    left: calc(3vw - 25px);
     img {
       transform: scale(-1);
     }
   }
   &__right {
-    right: 5vw;
+    right: calc(3vw - 25px);
+  }
+  // for tablet down
+  @include for-tablet-landscape-down {
+    display: none;
   }
 }
 
@@ -400,17 +389,18 @@ li {
 
 /* ARROWS */
 .arrow {
-  position: fixed;
-  @include size(50px, 50px);
-  opacity: 0;
+  //position: fixed;
+  @include size(100%, 100%);
+  opacity: 1;
   // arrow about
-  &--bottom {
-    top: 85vh;
-    left: calc(50vw - 25px);
-    transform: rotate(90deg);
-  }
+  transform: rotate(90deg);
+  // &--bottom {
+  //   top: 85vh;
+  //   left: calc(50vw - 25px);
+  //   transform: rotate(90deg);
+  // }
 
-  animation: blinking 3s 3s ease-in-out forwards;
+  //animation: blinking 3s 3s ease-in-out forwards;
 }
 
 @keyframes blinking {
