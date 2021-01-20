@@ -19,7 +19,7 @@
   "author": "Mathilde Frachon",
   "license": "ISC",
   "dependencies": {
-    "gsap": "^2.1.1"
+    "gsap": "^3.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.5.0",
